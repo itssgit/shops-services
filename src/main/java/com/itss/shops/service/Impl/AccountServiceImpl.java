@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.querydsl.core.types.Predicate;
 import com.itss.shops.common.utils.MPUtils;
+import com.itss.shops.dto.AccountDTO;
 import com.itss.shops.entity.Account;
 import com.itss.shops.entity.Role;
 
@@ -83,6 +84,30 @@ public class AccountServiceImpl implements AccountService {
 			throw new BadRequestException("Can not save account");
 		}
 		return newAccount.getId();
+	}
+
+	@Override
+	public ListResponse<AccountDTO> getUsers2(int pageNum, int pageSize, String sortBy, String sortOrder,
+			Boolean isShowInactive, String searchText) {
+		// TODO Auto-generated method stub
+		PageRequest pageRequest = MPUtils.getPageRequest(pageNum, pageSize, sortBy, sortOrder);
+		Predicate where = AccountPredicate.findUser(searchText, isShowInactive);
+		Page<Account> listUser = accountRepository.findAll(where, pageRequest);
+
+		List<Account> users = listUser.getContent();
+		List<AccountDTO> userResponses = new ArrayList<>();
+		if (listUser.getTotalElements() > 0) {
+			for (Account user : users) {
+				AccountDTO userResponse = new AccountDTO(user);
+				    userResponses.add(userResponse);
+			}
+		}
+
+		ListResponse<AccountDTO> response = new ListResponse<>();
+		response.setList(userResponses);
+		response.setTotalCount(listUser.getTotalElements());
+
+		return response;
 	}
 
 }
