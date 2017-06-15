@@ -23,6 +23,7 @@ import com.itss.shops.common.utils.MPUtils;
 import com.itss.shops.dto.AccountDTO;
 import com.itss.shops.entity.Account;
 import com.itss.shops.entity.Role;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -62,14 +63,15 @@ public class AccountServiceImpl implements AccountService {
 	}
 	
 	@Override
-	public Integer addAccount(AccountRequestVo accountRequest) {
+	@Transactional
+	public Integer addAccount(AccountRequestVo accountRequest) throws BadRequestException {
 		Account newAccount = new Account();
 		Account accountCheck;
 		if (accountRequest.getRoleId() != null && accountRequest.getRoleId() > 0) {
 			Role role = roleRepository.findById((Integer) accountRequest.getRoleId());
 
 			if (role == null)
-				throw new BadRequestException("Role is invalid");
+				throw new BadRequestException("Role khong ton tai nen khong tao duoc user");
 
 			newAccount.setRole(role);
 		}

@@ -33,7 +33,7 @@ public class MPAdminSwaggerConfig {
 	
 	private ApiInfo apiInfo() {
 	    return new ApiInfoBuilder()
-	            .title("Management Posts Admin API")
+	            .title("Shops back-end Admin API")
 	            .description("Management Posts Admin API Description")
 	            .license("Apache 2.0")
 	            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")

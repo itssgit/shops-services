@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AccountRequestVo {
-	//anhvv
+
 	public Long getId() {
 		return id;
 	}

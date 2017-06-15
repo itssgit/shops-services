@@ -13,32 +13,8 @@ import com.itss.shops.common.constant.Constants;
 @NoArgsConstructor
 public class CommonResponse<T> implements Serializable{
 
-    public Integer getResultCode() {
-		return resultCode;
-	}
-
-	public void setResultCode(Integer resultCode) {
-		this.resultCode = resultCode;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public T getValue() {
-		return value;
-	}
-
-	public void setValue(T value) {
-		this.value = value;
-	}
-
 	private static final long serialVersionUID = 1L;
-    private Integer resultCode;
+    private String resultCode;
     private String message;
     private T value;
     
@@ -56,5 +32,38 @@ public class CommonResponse<T> implements Serializable{
 		this.value = value;
 		
 		return this;
+	}
+
+	public CommonResponse<T> failedRespone(T value, String message) {
+		this.resultCode = Constants.RESULT_CODE_FAIL;
+		this.message = message;
+		this.value = value;
+
+		return this;
+	}
+
+
+	public String getResultCode() {
+		return resultCode;
+	}
+
+	public void setResultCode(String resultCode) {
+		this.resultCode = resultCode;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public T getValue() {
+		return value;
+	}
+
+	public void setValue(T value) {
+		this.value = value;
 	}
 }

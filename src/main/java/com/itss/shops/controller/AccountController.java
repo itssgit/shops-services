@@ -64,23 +64,25 @@ public class AccountController {
 		return response;
 	}
 	
-	@RequestMapping(value = "/createUser", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/createUser", method = RequestMethod.POST, consumes = "application/json")
 	public CommonResponse<Integer> createrUsers(@RequestBody @Valid final AccountRequestVo accountRequest) {
-//		log.info("Received request to create the {}", accountRequest);
-		if (accountRequest.getRoleId() == null
-				|| accountRequest.getRoleId() <= 0) {
-			throw new BadRequestException("Role is null or invalid!");
-		}
-		Integer result = accountService.addAccount(accountRequest);
 		CommonResponse<Integer> response = new CommonResponse<>();
-		response.successfulRespone(result);
+		try {
+			if (accountRequest.getRoleId() == null
+					|| accountRequest.getRoleId() <= 0) {
+				throw new BadRequestException("Role is null or invalid!");
+			}
+			Integer result = accountService.addAccount(accountRequest);
+			response.successfulRespone(result);
+		} catch (BadRequestException ex){
+			response.failedRespone(-1, ex.getMessage());
+		}
 		return response;
 	}
 	
 	@RequestMapping(value = "/test", method = RequestMethod.GET, produces = "application/json", consumes = "*/*")
 	public CommonResponse<String> test() {
-		CommonResponse<String> response = new CommonResponse<String>();
-
+		CommonResponse<String> response = new CommonResponse<>();
 		response.successfulRespone("OK");
 		return response;
 	}
