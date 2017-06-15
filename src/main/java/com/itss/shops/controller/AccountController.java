@@ -65,17 +65,18 @@ public class AccountController {
 	}
 	
 	@RequestMapping(value = "/createUser", method = RequestMethod.POST, consumes = "application/json")
-	public CommonResponse<Integer> createrUsers(@RequestBody @Valid final AccountRequestVo accountRequest) {
-		CommonResponse<Integer> response = new CommonResponse<>();
+	public CommonResponse<String> createrUsers(@RequestBody @Valid final AccountDTO accountRequest) {
+		CommonResponse<String> response = new CommonResponse<>();
 		try {
-			if (accountRequest.getRoleId() == null
-					|| accountRequest.getRoleId() <= 0) {
-				throw new BadRequestException("Role is null or invalid!");
-			}
-			Integer result = accountService.addAccount(accountRequest);
+//			if (accountRequest.getRoleId() == null
+//					|| accountRequest.getRoleId() <= 0) {
+//				throw new BadRequestException("Role is null or invalid!");
+//			}
+//			Integer result = accountService.addAccount(accountRequest);
+			String result = accountRequest.logInfo();
 			response.successfulRespone(result);
 		} catch (BadRequestException ex){
-			response.failedRespone(-1, ex.getMessage());
+			response.failedRespone("-1", ex.getMessage());
 		}
 		return response;
 	}

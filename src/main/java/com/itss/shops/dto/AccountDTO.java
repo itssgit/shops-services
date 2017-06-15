@@ -100,4 +100,17 @@ public class AccountDTO implements Serializable {
 		this.roleId = roleId;
 	}
 
+
+	public String logInfo() {
+		return "AccountDTO{" +
+				"id=" + id +
+				", userName='" + userName + '\'' +
+				", passWord='" + passWord + '\'' +
+				", fullName='" + fullName + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				", email='" + email + '\'' +
+				", avatar='" + avatar + '\'' +
+				", roleId=" + roleId +
+				'}';
+	}
 }
