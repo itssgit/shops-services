@@ -13,6 +13,8 @@ import com.itss.shops.repository.predicate.AccountPredicate;
 import com.itss.shops.service.AccountService;
 import com.itss.shops.vo.request.AccountRequestVo;
 import com.itss.shops.vo.response.AccountResponse;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,18 +31,21 @@ import org.springframework.transaction.annotation.Transactional;
 public class AccountServiceImpl implements AccountService {
 	@Autowired
 	private AccountRepository accountRepository;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
+	@Autowired
+	private ModelMapper modelMapper;
+
 	@Override
 	public Optional<Account> getAccountByLoginId(String loginId) {
 		return accountRepository.findByLoginId(loginId);
 	}
-	
+
 	@Override
-	public ListResponse<AccountResponse> getUsers(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive,
-                                                  String searchText) {
+	public ListResponse<AccountResponse> getUsers(int pageNum, int pageSize, String sortBy, String sortOrder,
+			Boolean isShowInactive, String searchText) {
 
 		PageRequest pageRequest = MPUtils.getPageRequest(pageNum, pageSize, sortBy, sortOrder);
 		Predicate where = AccountPredicate.findUser(searchText, isShowInactive);
@@ -51,7 +56,7 @@ public class AccountServiceImpl implements AccountService {
 		if (listUser.getTotalElements() > 0) {
 			for (Account user : users) {
 				AccountResponse userResponse = new AccountResponse(user);
-				    userResponses.add(userResponse);
+				userResponses.add(userResponse);
 			}
 		}
 
@@ -61,7 +66,7 @@ public class AccountServiceImpl implements AccountService {
 
 		return response;
 	}
-	
+
 	@Override
 	@Transactional
 	public Integer addAccount(AccountRequestVo accountRequest) throws BadRequestException {
@@ -76,13 +81,13 @@ public class AccountServiceImpl implements AccountService {
 			newAccount.setRole(role);
 		}
 		accountCheck = accountRepository.findByUserName(accountRequest.getUserName().trim());
-		if(accountCheck != null) {
+		if (accountCheck != null) {
 			throw new BadRequestException("Account existed");
 		}
 		MPBeanUtils.copyProperties(accountRequest, newAccount, "id");
 		try {
 			accountRepository.save(newAccount);
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			throw new BadRequestException("Can not save account");
 		}
 		return newAccount.getId();
@@ -100,8 +105,9 @@ public class AccountServiceImpl implements AccountService {
 		List<AccountDTO> userResponses = new ArrayList<>();
 		if (listUser.getTotalElements() > 0) {
 			for (Account user : users) {
-				AccountDTO userResponse = new AccountDTO(user);
-				    userResponses.add(userResponse);
+				// AccountDTO userResponse = new AccountDTO(user);
+				AccountDTO userResponse = modelMapper.map(user, AccountDTO.class);
+				userResponses.add(userResponse);
 			}
 		}
 

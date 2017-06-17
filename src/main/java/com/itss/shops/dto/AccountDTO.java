@@ -4,16 +4,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.itss.shops.common.utils.MPBeanUtils;
-import com.itss.shops.entity.Account;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
 public class AccountDTO implements Serializable {
 	/**
@@ -87,9 +78,8 @@ public class AccountDTO implements Serializable {
 	private String avatar;
 	private Integer roleId;
 	
-	public AccountDTO (Account account) {
+	public AccountDTO(){
 		super();
-		MPBeanUtils.copyPropertiesIgnoreNull(account, this);
 	}
 
 	public Integer getRoleId() {
