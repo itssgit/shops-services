@@ -133,9 +133,9 @@
 		
 		<profile>
 			<id>dev</id>
-			<!-- <activation>
-				<activeByDefault>true</activeByDefault>
-			</activation> -->
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
 			<properties>
 				<environment>dev</environment>
 				<logLevel>INFO</logLevel>
@@ -179,6 +179,7 @@
           		</dependency>
         	</dependencies>
       		</plugin>
+
 		</plugins>
 	</build>
 
