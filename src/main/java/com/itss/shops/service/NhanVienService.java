@@ -10,13 +10,6 @@ import com.itss.shops.vo.response.AccountResponse;
 
 public interface NhanVienService {
 	
-	Optional<Account> getAccountByLoginId(String loginId);
-	
-	ListResponse<AccountResponse> getUsers(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive,
-			String searchText);
-	ListResponse<AccountDTO> getUsers2(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive,
-			String searchText);
-	
-	Integer addAccount(AccountRequestVo accountRequest);
+
 
 }
