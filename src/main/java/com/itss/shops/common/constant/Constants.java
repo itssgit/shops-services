@@ -2,8 +2,8 @@ package com.itss.shops.common.constant;
 
 public class Constants {
 	
-	public static final Integer RESULT_CODE_SUCCESS = 0;
-	public static final Integer RESULT_CODE_FAIL = 1;
+	public static final String RESULT_CODE_SUCCESS = "OK";
+	public static final String RESULT_CODE_FAIL = "NOT_OK";
 	
 	public static final String MESSAGE_SUCCESS = "SUCCESSFULLY";
 	public static final String MESSAGE_FAIL = "FAIL";

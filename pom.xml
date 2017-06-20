@@ -108,9 +108,9 @@
 	<profiles>
 		<profile>
 			<id>local</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
 			<properties>
 				<environment>local</environment>
 				<logLevel>DEBUG</logLevel>
@@ -127,7 +127,9 @@
 
 		<profile>
 			<id>dev</id>
-			<!-- <activation> <activeByDefault>true</activeByDefault> </activation> -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<environment>dev</environment>
 				<logLevel>INFO</logLevel>

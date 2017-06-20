@@ -28,7 +28,13 @@ public class NguyenLieuController {
 	
 	@Autowired
 	NguyenLieuService nguyenLieuService;
-	
-	
+
+	@RequestMapping(value = "/test", method = RequestMethod.GET, produces = "application/json", consumes = "*/*")
+	public CommonResponse<String> test() {
+		CommonResponse<String> response = new CommonResponse<String>();
+
+		response.successfulRespone("OK");
+		return response;
+	}
 
 }
