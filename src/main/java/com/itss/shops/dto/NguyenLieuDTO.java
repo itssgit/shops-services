@@ -13,6 +13,8 @@ public class NguyenLieuDTO implements Serializable {
 	private String donVi;
 	private String ten;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 	
 	public NguyenLieuDTO() {
 		super();
@@ -61,6 +63,22 @@ public class NguyenLieuDTO implements Serializable {
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	

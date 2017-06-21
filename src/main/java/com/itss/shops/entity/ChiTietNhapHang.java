@@ -19,17 +19,15 @@ import com.itss.shops.common.entity.BaseEntity;
 @Table(name = "ChiTietNhapHang", catalog = "Coffee", uniqueConstraints = @UniqueConstraint(columnNames = {
 		"PhieuNhapID", "NguyenLieuID" }))
 public class ChiTietNhapHang extends BaseEntity {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4178040911260512311L;
+	
 	private Integer chiTietNhapHangId;
 	private int nguyenLieuId;
 	private int soLuong;
 	private float donGia;
 	private int phieuNhapId;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 
 	public ChiTietNhapHang() {
 	}
@@ -40,6 +38,17 @@ public class ChiTietNhapHang extends BaseEntity {
 		this.donGia = donGia;
 		this.phieuNhapId = phieuNhapId;
 		this.lastUpdate = lastUpdate;
+	}
+
+	public ChiTietNhapHang(int nguyenLieuId, int soLuong, float donGia, int phieuNhapId, Date lastUpdate,
+			Integer trangThaiXoa, Date thoiGianXoa) {
+		this.nguyenLieuId = nguyenLieuId;
+		this.soLuong = soLuong;
+		this.donGia = donGia;
+		this.phieuNhapId = phieuNhapId;
+		this.lastUpdate = lastUpdate;
+		this.trangThaiXoa = trangThaiXoa;
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	@Id
@@ -90,8 +99,8 @@ public class ChiTietNhapHang extends BaseEntity {
 		this.phieuNhapId = phieuNhapId;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "LastUpdate", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LastUpdate", nullable = false, length = 19)
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
@@ -99,5 +108,29 @@ public class ChiTietNhapHang extends BaseEntity {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
+
+	@Column(name = "TrangThaiXoa")
+	public Integer getTrangThaiXoa() {
+		return this.trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGianXoa", length = 19)
+	public Date getThoiGianXoa() {
+		return this.thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
+	}
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4178040911260512311L;
 
 }

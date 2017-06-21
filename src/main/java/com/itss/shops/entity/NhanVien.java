@@ -18,16 +18,14 @@ import com.itss.shops.common.entity.BaseEntity;
 @Table(name = "NhanVien", catalog = "Coffee")
 public class NhanVien extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8267640856242370630L;
 	private Integer nhanVienId;
 	private String hoTen;
 	private Date ngaySinh;
 	private String cmnd;
 	private String sdt;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 
 	public NhanVien() {
 	}
@@ -38,6 +36,17 @@ public class NhanVien extends BaseEntity {
 		this.cmnd = cmnd;
 		this.sdt = sdt;
 		this.lastUpdate = lastUpdate;
+	}
+
+	public NhanVien(String hoTen, Date ngaySinh, String cmnd, String sdt, Date lastUpdate, Integer trangThaiXoa,
+			Date thoiGianXoa) {
+		this.hoTen = hoTen;
+		this.ngaySinh = ngaySinh;
+		this.cmnd = cmnd;
+		this.sdt = sdt;
+		this.lastUpdate = lastUpdate;
+		this.trangThaiXoa = trangThaiXoa;
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	@Id
@@ -61,8 +70,8 @@ public class NhanVien extends BaseEntity {
 		this.hoTen = hoTen;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "NgaySinh", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "NgaySinh", nullable = false, length = 19)
 	public Date getNgaySinh() {
 		return this.ngaySinh;
 	}
@@ -89,8 +98,8 @@ public class NhanVien extends BaseEntity {
 		this.sdt = sdt;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "LastUpdate", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LastUpdate", nullable = false, length = 19)
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
@@ -99,4 +108,27 @@ public class NhanVien extends BaseEntity {
 		this.lastUpdate = lastUpdate;
 	}
 
+	@Column(name = "TrangThaiXoa")
+	public Integer getTrangThaiXoa() {
+		return this.trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGianXoa", length = 19)
+	public Date getThoiGianXoa() {
+		return this.thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8267640856242370630L;
 }

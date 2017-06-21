@@ -21,15 +21,14 @@ import com.itss.shops.common.entity.BaseEntity;
 		"SanPhamID" }))
 public class ChiTietDonHang extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8767110837556002146L;
+
 	private Integer chiTietDonHangId;
 	private int sanPhamId;
 	private int soLuong;
 	private int donHangId;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 
 	public ChiTietDonHang() {
 	}
@@ -39,6 +38,16 @@ public class ChiTietDonHang extends BaseEntity {
 		this.soLuong = soLuong;
 		this.donHangId = donHangId;
 		this.lastUpdate = lastUpdate;
+	}
+
+	public ChiTietDonHang(int sanPhamId, int soLuong, int donHangId, Date lastUpdate, Integer trangThaiXoa,
+			Date thoiGianXoa) {
+		this.sanPhamId = sanPhamId;
+		this.soLuong = soLuong;
+		this.donHangId = donHangId;
+		this.lastUpdate = lastUpdate;
+		this.trangThaiXoa = trangThaiXoa;
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	@Id
@@ -80,8 +89,8 @@ public class ChiTietDonHang extends BaseEntity {
 		this.donHangId = donHangId;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "LastUpdate", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LastUpdate", nullable = false, length = 19)
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
@@ -89,5 +98,29 @@ public class ChiTietDonHang extends BaseEntity {
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
+
+	@Column(name = "TrangThaiXoa")
+	public Integer getTrangThaiXoa() {
+		return this.trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGianXoa", length = 19)
+	public Date getThoiGianXoa() {
+		return this.thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
+	}
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8767110837556002146L;
 
 }

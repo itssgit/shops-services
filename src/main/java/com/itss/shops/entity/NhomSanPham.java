@@ -18,16 +18,14 @@ import com.itss.shops.common.entity.BaseEntity;
 @Table(name = "NhomSanPham", catalog = "Coffee")
 public class NhomSanPham extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7572465635351838981L;
 	private Integer nhomSanPhamId;
 	private String hinhAnh;
 	private String tenNhom;
 	private String moTa;
 	private boolean hienThi;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 
 	public NhomSanPham() {
 	}
@@ -39,12 +37,15 @@ public class NhomSanPham extends BaseEntity {
 		this.lastUpdate = lastUpdate;
 	}
 
-	public NhomSanPham(String hinhAnh, String tenNhom, String moTa, boolean hienThi, Date lastUpdate) {
+	public NhomSanPham(String hinhAnh, String tenNhom, String moTa, boolean hienThi, Date lastUpdate,
+			Integer trangThaiXoa, Date thoiGianXoa) {
 		this.hinhAnh = hinhAnh;
 		this.tenNhom = tenNhom;
 		this.moTa = moTa;
 		this.hienThi = hienThi;
 		this.lastUpdate = lastUpdate;
+		this.trangThaiXoa = trangThaiXoa;
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	@Id
@@ -95,8 +96,8 @@ public class NhomSanPham extends BaseEntity {
 		this.hienThi = hienThi;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "LastUpdate", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LastUpdate", nullable = false, length = 19)
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
@@ -105,4 +106,27 @@ public class NhomSanPham extends BaseEntity {
 		this.lastUpdate = lastUpdate;
 	}
 
+	@Column(name = "TrangThaiXoa")
+	public Integer getTrangThaiXoa() {
+		return this.trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGianXoa", length = 19)
+	public Date getThoiGianXoa() {
+		return this.thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7572465635351838981L;
 }

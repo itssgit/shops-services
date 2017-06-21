@@ -24,7 +24,7 @@ public class QPhieuNhap extends EntityPathBase<PhieuNhap> {
     //inherited
     public final DateTimePath<java.util.Date> createdTime = _super.createdTime;
 
-    public final DatePath<java.util.Date> lastUpdate = createDate("lastUpdate", java.util.Date.class);
+    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
 
     public final DatePath<java.util.Date> ngayNhap = createDate("ngayNhap", java.util.Date.class);
 
@@ -32,7 +32,11 @@ public class QPhieuNhap extends EntityPathBase<PhieuNhap> {
 
     public final NumberPath<Integer> phieuNhapId = createNumber("phieuNhapId", Integer.class);
 
+    public final DateTimePath<java.util.Date> thoiGianXoa = createDateTime("thoiGianXoa", java.util.Date.class);
+
     public final NumberPath<Float> tongGiaTri = createNumber("tongGiaTri", Float.class);
+
+    public final NumberPath<Integer> trangThaiXoa = createNumber("trangThaiXoa", Integer.class);
 
     //inherited
     public final DateTimePath<java.util.Date> updatedTime = _super.updatedTime;

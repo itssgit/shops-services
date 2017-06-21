@@ -42,6 +42,10 @@ public class QKhachHang extends EntityPathBase<KhachHang> {
 
     public final StringPath tenKh = createString("tenKh");
 
+    public final DateTimePath<java.util.Date> thoiGianXoa = createDateTime("thoiGianXoa", java.util.Date.class);
+
+    public final NumberPath<Integer> trangThaiXoa = createNumber("trangThaiXoa", Integer.class);
+
     //inherited
     public final DateTimePath<java.util.Date> updatedTime = _super.updatedTime;
 

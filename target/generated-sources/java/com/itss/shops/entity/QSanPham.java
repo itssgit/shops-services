@@ -38,6 +38,10 @@ public class QSanPham extends EntityPathBase<SanPham> {
 
     public final NumberPath<Integer> sanPhamId = createNumber("sanPhamId", Integer.class);
 
+    public final DateTimePath<java.util.Date> thoiGianXoa = createDateTime("thoiGianXoa", java.util.Date.class);
+
+    public final NumberPath<Integer> trangThaiXoa = createNumber("trangThaiXoa", Integer.class);
+
     //inherited
     public final DateTimePath<java.util.Date> updatedTime = _super.updatedTime;
 

@@ -12,6 +12,8 @@ public class HangKhuyenMaiDTO implements Serializable {
 	private Date lastUpdate;
 	private int khuyenMaiId;
 	private int donHangId;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 	
 	public HangKhuyenMaiDTO() {
 		super();
@@ -52,5 +54,21 @@ public class HangKhuyenMaiDTO implements Serializable {
 
 	public void setDonHangId(int donHangId) {
 		this.donHangId = donHangId;
+	}
+
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}	
 }

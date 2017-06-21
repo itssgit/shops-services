@@ -13,7 +13,9 @@ public class ChiTietSanPhamDTO implements Serializable {
 	private int nguyenLieuId;
 	private int soLuong;
 	private Date lastUpdate;
-
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
+	
 	public ChiTietSanPhamDTO() {
 		super();
 	}
@@ -52,6 +54,18 @@ public class ChiTietSanPhamDTO implements Serializable {
 	}
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 	
 }

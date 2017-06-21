@@ -15,6 +15,8 @@ public class SanPhamDTO implements Serializable {
 	private String hinhAnh;
 	private boolean hienThi;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 	
 	public SanPhamDTO() {
 		super();
@@ -79,5 +81,21 @@ public class SanPhamDTO implements Serializable {
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 }

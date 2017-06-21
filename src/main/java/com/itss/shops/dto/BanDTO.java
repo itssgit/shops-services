@@ -8,22 +8,22 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 public class BanDTO implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
-	
-	
+
 	private Integer banId;
 	private String maSo;
 	private int trangThai;
 	private Date lastUpdate;	
 	private Integer ghepBanBanId;
+	private Integer trangThaiXoa;
 	
-
 	public BanDTO() {
 		super();
 	}
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 16207331533605865L;
 	
 	public Integer getBanId() {
 		return banId;
@@ -55,5 +55,24 @@ public class BanDTO implements Serializable {
 	public void setGhepBanBanId(Integer ghepBanBanId) {
 		this.ghepBanBanId = ghepBanBanId;
 	}
+	
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
 
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
+	}
+	private Date thoiGianXoa;
+	
+	
+	
 }

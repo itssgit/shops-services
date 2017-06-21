@@ -1,6 +1,7 @@
 package com.itss.shops.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -16,6 +17,8 @@ public class KhachHangDTO implements Serializable {
 	private int diemTichLuy;
 	private int congNo;
 	private String status;	
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 
 	public KhachHangDTO() {
 		super();
@@ -96,5 +99,21 @@ public class KhachHangDTO implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 }

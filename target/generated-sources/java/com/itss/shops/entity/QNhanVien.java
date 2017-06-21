@@ -28,13 +28,17 @@ public class QNhanVien extends EntityPathBase<NhanVien> {
 
     public final StringPath hoTen = createString("hoTen");
 
-    public final DatePath<java.util.Date> lastUpdate = createDate("lastUpdate", java.util.Date.class);
+    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
 
-    public final DatePath<java.util.Date> ngaySinh = createDate("ngaySinh", java.util.Date.class);
+    public final DateTimePath<java.util.Date> ngaySinh = createDateTime("ngaySinh", java.util.Date.class);
 
     public final NumberPath<Integer> nhanVienId = createNumber("nhanVienId", Integer.class);
 
     public final StringPath sdt = createString("sdt");
+
+    public final DateTimePath<java.util.Date> thoiGianXoa = createDateTime("thoiGianXoa", java.util.Date.class);
+
+    public final NumberPath<Integer> trangThaiXoa = createNumber("trangThaiXoa", Integer.class);
 
     //inherited
     public final DateTimePath<java.util.Date> updatedTime = _super.updatedTime;

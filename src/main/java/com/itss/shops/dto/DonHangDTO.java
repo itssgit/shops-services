@@ -13,6 +13,8 @@ public class DonHangDTO implements Serializable {
 	private float tongTien;
 	private String ghiChu;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 	private int banId;
 	private int nhanVienId;
 	
@@ -79,6 +81,22 @@ public class DonHangDTO implements Serializable {
 
 	public void setNhanVienId(int nhanVienId) {
 		this.nhanVienId = nhanVienId;
+	}
+
+	public Integer getTrangThaiXoa() {
+		return trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	public Date getThoiGianXoa() {
+		return thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 	
 }

@@ -18,15 +18,13 @@ import com.itss.shops.common.entity.BaseEntity;
 @Table(name = "DonHang", catalog = "Coffee")
 public class DonHang extends BaseEntity {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5661907468559094787L;
 	private Integer donHangId;
 	private Date thoiGian;
 	private float tongTien;
 	private String ghiChu;
 	private Date lastUpdate;
+	private Integer trangThaiXoa;
+	private Date thoiGianXoa;
 	private int banId;
 	private int nhanVienId;
 
@@ -38,6 +36,18 @@ public class DonHang extends BaseEntity {
 		this.tongTien = tongTien;
 		this.ghiChu = ghiChu;
 		this.lastUpdate = lastUpdate;
+		this.banId = banId;
+		this.nhanVienId = nhanVienId;
+	}
+
+	public DonHang(Date thoiGian, float tongTien, String ghiChu, Date lastUpdate, Integer trangThaiXoa,
+			Date thoiGianXoa, int banId, int nhanVienId) {
+		this.thoiGian = thoiGian;
+		this.tongTien = tongTien;
+		this.ghiChu = ghiChu;
+		this.lastUpdate = lastUpdate;
+		this.trangThaiXoa = trangThaiXoa;
+		this.thoiGianXoa = thoiGianXoa;
 		this.banId = banId;
 		this.nhanVienId = nhanVienId;
 	}
@@ -54,8 +64,8 @@ public class DonHang extends BaseEntity {
 		this.donHangId = donHangId;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "ThoiGian", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGian", nullable = false, length = 19)
 	public Date getThoiGian() {
 		return this.thoiGian;
 	}
@@ -82,14 +92,33 @@ public class DonHang extends BaseEntity {
 		this.ghiChu = ghiChu;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "LastUpdate", nullable = false, length = 10)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "LastUpdate", nullable = false, length = 19)
 	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
 
 	public void setLastUpdate(Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	@Column(name = "TrangThaiXoa")
+	public Integer getTrangThaiXoa() {
+		return this.trangThaiXoa;
+	}
+
+	public void setTrangThaiXoa(Integer trangThaiXoa) {
+		this.trangThaiXoa = trangThaiXoa;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ThoiGianXoa", length = 19)
+	public Date getThoiGianXoa() {
+		return this.thoiGianXoa;
+	}
+
+	public void setThoiGianXoa(Date thoiGianXoa) {
+		this.thoiGianXoa = thoiGianXoa;
 	}
 
 	@Column(name = "BanID", nullable = false)
@@ -109,5 +138,10 @@ public class DonHang extends BaseEntity {
 	public void setNhanVienId(int nhanVienId) {
 		this.nhanVienId = nhanVienId;
 	}
+		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5661907468559094787L;
 
 }
