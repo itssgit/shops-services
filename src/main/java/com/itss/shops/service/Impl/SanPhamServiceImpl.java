@@ -2,18 +2,26 @@ package com.itss.shops.service.Impl;
 
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itss.shops.common.model.ListResponse;
 import com.itss.shops.dto.SanPhamDTO;
+import com.itss.shops.entity.SanPham;
 import com.itss.shops.service.SanPhamService;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
 
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	@Override
 	public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
-		// TODO Auto-generated method stub
+		SanPham sanPham = modelMapper.map(sanPhamDTO, SanPham.class);
+		
+		
 		return null;
 	}
 
