@@ -34,6 +34,7 @@ public class SanPhamServiceImpl implements SanPhamService {
 	@Override
 	public SanPhamDTO updateSanPham(SanPhamDTO sanPhamDTO) {
 		// TODO Auto-generated method stub
+		//test 2
 		return null;
 	}
 
@@ -56,9 +57,8 @@ public class SanPhamServiceImpl implements SanPhamService {
 	}
 
 	@Override
-	public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {		
-		SanPhamDTO spDTO = sanPhamRepo.getSanPhamDTOById(sanphamID);
-		return spDTO;
+	public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {
+		return sanPhamRepo.getSanPhamDTOById(sanphamID);
 	}
 	
 
