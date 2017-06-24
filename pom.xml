@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.itss.shops</groupId>
-	<artifactId>shops-server-api</artifactId>
+	<artifactId>shops-services</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 
@@ -19,8 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8
-		</project.reporting.outputEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<jjwt.version>0.6.0</jjwt.version>
 		<swagger-springmvc.version>0.9.5</swagger-springmvc.version>
@@ -104,18 +103,14 @@
 			<version>1.0.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-osgi</artifactId>
-		</dependency>
 	</dependencies>
 
 	<profiles>
 		<profile>
 			<id>local</id>
-			<!--<activation> -->
-			<!--<activeByDefault>true</activeByDefault> -->
-			<!--</activation> -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<environment>local</environment>
 				<logLevel>DEBUG</logLevel>
@@ -132,9 +127,9 @@
 
 		<profile>
 			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
 			<properties>
 				<environment>dev</environment>
 				<logLevel>INFO</logLevel>
@@ -166,8 +161,7 @@
 						</goals>
 						<configuration>
 							<outputDirectory>target/generated-sources/java</outputDirectory>
-							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor
-							</processor>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
 						</configuration>
 					</execution>
 				</executions>
