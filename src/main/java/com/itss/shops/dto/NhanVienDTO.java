@@ -1,19 +1,18 @@
 package com.itss.shops.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.itss.shops.common.dto.BaseDTO;
 
 @JsonInclude(Include.NON_NULL)
-public class NhanVienDTO implements Serializable {
+public class NhanVienDTO extends BaseDTO {
 	private Integer nhanVienId;
 	private String hoTen;
 	private Date ngaySinh;
 	private String cmnd;
 	private String sdt;
-	private Date lastUpdate;
 	private Integer trangThaiXoa;
 	private Date thoiGianXoa;
 	
@@ -64,14 +63,6 @@ public class NhanVienDTO implements Serializable {
 
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
-	}
-
-	public Date getLastUpdate() {
-		return lastUpdate;
-	}
-
-	public void setLastUpdate(Date lastUpdate) {
-		this.lastUpdate = lastUpdate;
 	}
 
 	public Integer getTrangThaiXoa() {

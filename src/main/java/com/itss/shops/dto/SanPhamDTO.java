@@ -1,20 +1,20 @@
 package com.itss.shops.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.itss.shops.common.dto.BaseDTO;
 
 @JsonInclude(Include.NON_NULL)
-public class SanPhamDTO implements Serializable {
+public class SanPhamDTO extends BaseDTO {
 	private Integer sanPhamId;
 	private Integer nhomSanPhamId;
 	private float donGia;
-	private int moTa;
+	private String tenSanPham;
+	private String moTa;
 	private String hinhAnh;
 	private boolean hienThi;
-	private Date lastUpdate;
 	private Integer trangThaiXoa;
 	private Date thoiGianXoa;
 	
@@ -51,11 +51,11 @@ public class SanPhamDTO implements Serializable {
 		this.donGia = donGia;
 	}
 
-	public int getMoTa() {
+	public String getMoTa() {
 		return moTa;
 	}
 
-	public void setMoTa(int moTa) {
+	public void setMoTa(String moTa) {
 		this.moTa = moTa;
 	}
 
@@ -75,14 +75,6 @@ public class SanPhamDTO implements Serializable {
 		this.hienThi = hienThi;
 	}
 
-	public Date getLastUpdate() {
-		return lastUpdate;
-	}
-
-	public void setLastUpdate(Date lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
-
 	public Integer getTrangThaiXoa() {
 		return trangThaiXoa;
 	}
@@ -97,5 +89,13 @@ public class SanPhamDTO implements Serializable {
 
 	public void setThoiGianXoa(Date thoiGianXoa) {
 		this.thoiGianXoa = thoiGianXoa;
+	}
+
+	public String getTenSanPham() {
+		return tenSanPham;
+	}
+
+	public void setTenSanPham(String tenSanPham) {
+		this.tenSanPham = tenSanPham;
 	}
 }

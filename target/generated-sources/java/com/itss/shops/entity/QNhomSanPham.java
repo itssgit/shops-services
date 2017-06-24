@@ -28,8 +28,6 @@ public class QNhomSanPham extends EntityPathBase<NhomSanPham> {
 
     public final StringPath hinhAnh = createString("hinhAnh");
 
-    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
-
     public final StringPath moTa = createString("moTa");
 
     public final NumberPath<Integer> nhomSanPhamId = createNumber("nhomSanPhamId", Integer.class);

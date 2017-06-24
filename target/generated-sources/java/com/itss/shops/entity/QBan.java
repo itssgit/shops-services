@@ -28,8 +28,6 @@ public class QBan extends EntityPathBase<Ban> {
 
     public final NumberPath<Integer> ghepBanBanId = createNumber("ghepBanBanId", Integer.class);
 
-    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
-
     public final StringPath maSo = createString("maSo");
 
     public final DateTimePath<java.util.Date> thoiGianXoa = createDateTime("thoiGianXoa", java.util.Date.class);

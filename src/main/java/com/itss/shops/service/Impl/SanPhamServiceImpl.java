@@ -1,28 +1,34 @@
 package com.itss.shops.service.Impl;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.itss.shops.common.model.ListResponse;
+import com.itss.shops.common.utils.MPUtils;
+import com.itss.shops.dto.AccountDTO;
 import com.itss.shops.dto.SanPhamDTO;
+import com.itss.shops.entity.Account;
 import com.itss.shops.entity.SanPham;
+import com.itss.shops.repository.SanPhamRepository;
+import com.itss.shops.repository.predicate.AccountPredicate;
 import com.itss.shops.service.SanPhamService;
+import com.querydsl.core.types.Predicate;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
 
 	@Autowired
-	private ModelMapper modelMapper;
+	private SanPhamRepository sanPhamRepo;
 	
 	@Override
-	public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
-		SanPham sanPham = modelMapper.map(sanPhamDTO, SanPham.class);
+	public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {				
+			return sanPhamRepo.addSanPham(sanPhamDTO);
 		
-		
-		return null;
 	}
 
 	@Override
@@ -40,14 +46,19 @@ public class SanPhamServiceImpl implements SanPhamService {
 	@Override
 	public ListResponse<SanPhamDTO> getSanPham(int pageNum, int pageSize, String sortBy, String sortOrder,
 			Boolean isShowInactive, String searchText) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<SanPhamDTO> listDTO = sanPhamRepo.getSanPham(pageNum, pageSize, sortBy, sortOrder, isShowInactive, searchText);
+		ListResponse<SanPhamDTO> response = new ListResponse<>();
+		response.setList(listDTO);
+		response.setTotalCount(Long.valueOf(listDTO.size()));
+
+		return response;
 	}
 
 	@Override
-	public Optional<SanPhamDTO> getSanPhamDTOById(Integer sanphamID) {
-		// TODO Auto-generated method stub
-		return null;
+	public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {		
+		SanPhamDTO spDTO = sanPhamRepo.getSanPhamDTOById(sanphamID);
+		return spDTO;
 	}
 	
 

@@ -28,8 +28,6 @@ public class QChiTietDonHang extends EntityPathBase<ChiTietDonHang> {
 
     public final NumberPath<Integer> donHangId = createNumber("donHangId", Integer.class);
 
-    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
-
     public final NumberPath<Integer> sanPhamId = createNumber("sanPhamId", Integer.class);
 
     public final NumberPath<Integer> soLuong = createNumber("soLuong", Integer.class);

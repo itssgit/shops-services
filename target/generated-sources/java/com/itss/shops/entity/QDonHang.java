@@ -30,8 +30,6 @@ public class QDonHang extends EntityPathBase<DonHang> {
 
     public final StringPath ghiChu = createString("ghiChu");
 
-    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
-
     public final NumberPath<Integer> nhanVienId = createNumber("nhanVienId", Integer.class);
 
     public final DateTimePath<java.util.Date> thoiGian = createDateTime("thoiGian", java.util.Date.class);

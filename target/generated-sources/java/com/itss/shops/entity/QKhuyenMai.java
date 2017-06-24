@@ -32,8 +32,6 @@ public class QKhuyenMai extends EntityPathBase<KhuyenMai> {
 
     public final NumberPath<Integer> khuyenMaiId = createNumber("khuyenMaiId", Integer.class);
 
-    public final DateTimePath<java.util.Date> lastUpdate = createDateTime("lastUpdate", java.util.Date.class);
-
     public final NumberPath<Integer> loaiKhuyenMai = createNumber("loaiKhuyenMai", Integer.class);
 
     public final StringPath maKhuyenMai = createString("maKhuyenMai");

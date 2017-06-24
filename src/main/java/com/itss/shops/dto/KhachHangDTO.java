@@ -8,17 +8,18 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 public class KhachHangDTO implements Serializable {
-	private String maKh;
-	private String tenKh;
+	private Integer khachhangId;
+	private String maKhachhang;
+	private String tenKhachhang;
 	private String sdt;
 	private String email;
-	private byte gioiTinh;
-	private String diaChi;
-	private int diemTichLuy;
-	private int congNo;
-	private String status;	
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
+	private byte gioitinh;
+	private String diachi;
+	private int diemTichluy;
+	private int congno;
+	private int trangthai;
+	private Integer trangthaiXoa;
+	private Date thoigianXoa;
 
 	public KhachHangDTO() {
 		super();
@@ -29,20 +30,28 @@ public class KhachHangDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 16207331533605865L;
 
-	public String getMaKh() {
-		return maKh;
+	public Integer getKhachhangId() {
+		return khachhangId;
 	}
 
-	public void setMaKh(String maKh) {
-		this.maKh = maKh;
+	public void setKhachhangId(Integer khachhangId) {
+		this.khachhangId = khachhangId;
 	}
 
-	public String getTenKh() {
-		return tenKh;
+	public String getMaKhachhang() {
+		return maKhachhang;
 	}
 
-	public void setTenKh(String tenKh) {
-		this.tenKh = tenKh;
+	public void setMaKhachhang(String maKhachhang) {
+		this.maKhachhang = maKhachhang;
+	}
+
+	public String getTenKhachhang() {
+		return tenKhachhang;
+	}
+
+	public void setTenKhachhang(String tenKhachhang) {
+		this.tenKhachhang = tenKhachhang;
 	}
 
 	public String getSdt() {
@@ -61,59 +70,59 @@ public class KhachHangDTO implements Serializable {
 		this.email = email;
 	}
 
-	public byte getGioiTinh() {
-		return gioiTinh;
+	public byte getGioitinh() {
+		return gioitinh;
 	}
 
-	public void setGioiTinh(byte gioiTinh) {
-		this.gioiTinh = gioiTinh;
+	public void setGioitinh(byte gioitinh) {
+		this.gioitinh = gioitinh;
 	}
 
-	public String getDiaChi() {
-		return diaChi;
+	public String getDiachi() {
+		return diachi;
 	}
 
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
 	}
 
-	public int getDiemTichLuy() {
-		return diemTichLuy;
+	public int getDiemTichluy() {
+		return diemTichluy;
 	}
 
-	public void setDiemTichLuy(int diemTichLuy) {
-		this.diemTichLuy = diemTichLuy;
+	public void setDiemTichluy(int diemTichluy) {
+		this.diemTichluy = diemTichluy;
 	}
 
-	public int getCongNo() {
-		return congNo;
+	public int getCongno() {
+		return congno;
 	}
 
-	public void setCongNo(int congNo) {
-		this.congNo = congNo;
+	public void setCongno(int congno) {
+		this.congno = congno;
 	}
 
-	public String getStatus() {
-		return status;
+	public int getTrangthai() {
+		return trangthai;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setTrangthai(int trangthai) {
+		this.trangthai = trangthai;
 	}
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
+	public Integer getTrangthaiXoa() {
+		return trangthaiXoa;
 	}
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
+	public void setTrangthaiXoa(Integer trangthaiXoa) {
+		this.trangthaiXoa = trangthaiXoa;
 	}
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
+	public Date getThoigianXoa() {
+		return thoigianXoa;
 	}
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}
+	public void setThoigianXoa(Date thoigianXoa) {
+		this.thoigianXoa = thoigianXoa;
+	}	
 }
