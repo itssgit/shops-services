@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.itss.shops</groupId>
-	<artifactId>shops-services</artifactId>
+	<artifactId>shops-server-api</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 

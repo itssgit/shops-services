@@ -49,6 +49,19 @@ public class SanPhamController {
 		return response;
 	}
 
+	@RequestMapping(value="/delete", method = RequestMethod.PUT, produces = "application/json" )
+	public CommonResponse<Integer> deleteSanPham(@RequestBody @Valid final Integer sanPhamId){
+		CommonResponse<Integer> response = new CommonResponse<>();
+
+		try {
+			response.successfulRespone(sanPhamService.deleteSanPham(sanPhamId));
+		} catch(Exception ex) {
+			response.failedRespone(sanPhamId, ex.getMessage());
+		}				
+
+		return response;
+	}
+
 	@RequestMapping(value="/update", method = RequestMethod.PUT, produces = "application/json" )
 	public CommonResponse<SanPhamDTO> updateSanPham(@RequestBody @Valid final SanPhamDTO sanPhamDTO){
 		CommonResponse<SanPhamDTO> response = new CommonResponse<>();
@@ -57,8 +70,8 @@ public class SanPhamController {
 			updatedDTO = sanPhamService.updateSanPham(sanPhamDTO);
 			response.successfulRespone(updatedDTO);
 		} catch(Exception ex) {
-			response.failedRespone(updatedDTO, ex.getMessage());			
-		}				
+			response.failedRespone(updatedDTO, ex.getMessage());
+		}
 
 		return response;
 	}

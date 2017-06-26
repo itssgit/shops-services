@@ -9,10 +9,16 @@ public interface ChiTietSanPhamService {
 	
 
 	ChiTietSanPhamDTO addChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO);
+
+	List<ChiTietSanPhamDTO> addListChiTietSanPham(List<ChiTietSanPhamDTO> listChiTietSanPhamDTO);
 	
 	ChiTietSanPhamDTO updateChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO);
+
+	List<ChiTietSanPhamDTO> updateListChiTietSanPham(List<ChiTietSanPhamDTO> chiTietSanPhamDTOs);
 	
 	Integer deleteChiTietSanPham(Integer chiTietSanPhamID);
+
+	Integer deleteChiTietSanPhamBySanPhamID(Integer sanPhamID);
 	
 	List<ChiTietSanPhamDTO> getListChiTietSanPhamDTOBySanPhamId(Integer sanPhamID);
 	
