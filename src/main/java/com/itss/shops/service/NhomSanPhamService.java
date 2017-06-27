@@ -1,13 +1,20 @@
 package com.itss.shops.service;
 
+import com.itss.shops.common.model.ListResponse;
+import com.itss.shops.dto.NhomSanPhamDTO;
+
 import java.util.Optional;
 
-import com.itss.shops.common.model.ListResponse;
-import com.itss.shops.dto.AccountDTO;
-import com.itss.shops.entity.Account;
-import com.itss.shops.vo.request.AccountRequestVo;
-import com.itss.shops.vo.response.AccountResponse;
-
 public interface NhomSanPhamService {
+
+    NhomSanPhamDTO addNhomSanPham(NhomSanPhamDTO nhomSanPhamDTO);
+
+    NhomSanPhamDTO updateNhomSanPham(NhomSanPhamDTO nhomSanPhamDTO);
+
+    Integer deleteNhomSanPham(Integer nhomSanPhamID);
+
+    Optional<NhomSanPhamDTO> getNhomSanPhamDTOById(Integer nhomSanPhamID);
+
+    ListResponse<NhomSanPhamDTO> getNhomSanPham(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
 
 }
