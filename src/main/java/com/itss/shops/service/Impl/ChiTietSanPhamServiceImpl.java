@@ -37,8 +37,7 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
     @Override
     public ChiTietSanPhamDTO updateChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO) {
-        // TODO Auto-generated method stub
-        return null;
+        return chiTietSanPhamRepository.updateChiTietSanPham(chiTietSanPhamDTO);
     }
 
     @Override
@@ -65,19 +64,17 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
                 this.deleteChiTietSanPham(tmpDTO.getChiTietSanPhamId());
             }
         }
-        return chiTietSanPhamDTOList.size();
+        return chiTietSanPhamDTOList != null ? chiTietSanPhamDTOList.size() : 0;
     }
 
     @Override
     public List<ChiTietSanPhamDTO> getListChiTietSanPhamDTOBySanPhamId(Integer sanPhamID) {
-        // TODO Auto-generated method stub
-        return null;
+        return chiTietSanPhamRepository.getListChiTietSanPhamDTOBySanPhamId(sanPhamID);
     }
 
     @Override
-    public Optional<ChiTietSanPhamDTO> getChiTietSanPhamDTOById(Integer chiTietSanPhamID) {
-        // TODO Auto-generated method stub
-        return null;
+    public ChiTietSanPhamDTO getChiTietSanPhamDTOById(Integer chiTietSanPhamID) {
+        return chiTietSanPhamRepository.getChiTietSanPhamDTOById(chiTietSanPhamID);
     }
 
 

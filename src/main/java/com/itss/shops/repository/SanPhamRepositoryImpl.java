@@ -96,12 +96,11 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
     public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {
         SanPhamDTO result = new SanPhamDTO();
         try {
-            result = modelMapper.map(sanPhamRepository.findById(sanphamID).orElse(new SanPham()), SanPhamDTO.class);
+            //result = modelMapper.map(sanPhamRepository.findById(sanphamID).orElse(new SanPham()), SanPhamDTO.class);
+            result = modelMapper.map(sanPhamRepository.findOne(sanphamID), SanPhamDTO.class);
         } catch (Exception ex) {
 
         }
         return result;
     }
-
-
 }

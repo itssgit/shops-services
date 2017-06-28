@@ -3,6 +3,7 @@ package com.itss.shops.service.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itss.shops.common.exception.BadRequestException;
 import com.itss.shops.dto.ChiTietSanPhamDTO;
 import com.itss.shops.service.ChiTietSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import com.itss.shops.repository.SanPhamRepository;
 import com.itss.shops.repository.predicate.AccountPredicate;
 import com.itss.shops.service.SanPhamService;
 import com.querydsl.core.types.Predicate;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
@@ -31,6 +33,7 @@ public class SanPhamServiceImpl implements SanPhamService {
     private ChiTietSanPhamService chiTietSanPhamService;
 
     @Override
+    @Transactional
     public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
         SanPhamDTO resultDTO = sanPhamRepo.addSanPham(sanPhamDTO);
         List<ChiTietSanPhamDTO> chiTietSanPhamDTOList = chiTietSanPhamService.addListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
@@ -40,12 +43,14 @@ public class SanPhamServiceImpl implements SanPhamService {
     }
 
     @Override
+    @Transactional
     public SanPhamDTO updateSanPham(SanPhamDTO sanPhamDTO) {
         chiTietSanPhamService.updateListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
         return sanPhamRepo.updateSanPham(sanPhamDTO);
     }
 
     @Override
+    @Transactional
     public Integer deleteSanPham(Integer sanphamID) {
         chiTietSanPhamService.deleteChiTietSanPhamBySanPhamID(sanphamID);
         return sanPhamRepo.deleteSanPhamById(sanphamID);
@@ -56,14 +61,18 @@ public class SanPhamServiceImpl implements SanPhamService {
                                                Boolean isShowInactive, String searchText) {
 
         List<SanPhamDTO> listDTO = sanPhamRepo.getSanPham(pageNum, pageSize, sortBy, sortOrder, isShowInactive, searchText);
+        if (!listDTO.isEmpty()) {
+            for (SanPhamDTO tmpDTO : listDTO) {
+                tmpDTO.setChiTietSanPhamDTOList(chiTietSanPhamService.getListChiTietSanPhamDTOBySanPhamId(tmpDTO.getSanPhamId()));
+            }
+        }
+
         ListResponse<SanPhamDTO> response = new ListResponse<>();
         response.setList(listDTO);
         response.setTotalCount(Long.valueOf(listDTO.size()));
 
         return response;
     }
-
-
 
 
     @Override

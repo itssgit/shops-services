@@ -10,6 +10,7 @@ public class SanPhamPredicate {
 		QSanPham sanPham = QSanPham.sanPham;
 		BooleanExpression boolExpression;
 		boolExpression = sanPham.sanPhamId.gt(0);
+		boolExpression = boolExpression.and(sanPham.trangThaiXoa.eq(0));
 		
 		if(searchText != null && !searchText.isEmpty()) {
 			boolExpression = boolExpression.
@@ -18,5 +19,4 @@ public class SanPhamPredicate {
 		}	
 		return boolExpression;
 	}
-
 }

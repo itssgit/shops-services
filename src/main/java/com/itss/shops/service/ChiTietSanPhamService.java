@@ -22,5 +22,5 @@ public interface ChiTietSanPhamService {
 	
 	List<ChiTietSanPhamDTO> getListChiTietSanPhamDTOBySanPhamId(Integer sanPhamID);
 	
-	Optional<ChiTietSanPhamDTO> getChiTietSanPhamDTOById(Integer chiTietSanPhamID);
+	ChiTietSanPhamDTO getChiTietSanPhamDTOById(Integer chiTietSanPhamID);
 }
