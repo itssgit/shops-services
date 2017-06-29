@@ -1,22 +1,23 @@
 package com.itss.shops.repository;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import com.itss.shops.common.constant.Errors;
 import com.itss.shops.common.exception.BadRequestException;
+import com.itss.shops.common.exception.RestException;
+import com.itss.shops.common.utils.MPUtils;
+import com.itss.shops.dto.NguyenLieuDTO;
+import com.itss.shops.dto.SanPhamDTO;
+import com.itss.shops.entity.NguyenLieu;
+import com.itss.shops.entity.SanPham;
+import com.itss.shops.repository.predicate.SanPhamPredicate;
+import com.querydsl.core.types.Predicate;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import com.itss.shops.common.constant.Errors;
-import com.itss.shops.common.exception.RestException;
-import com.itss.shops.common.utils.MPUtils;
-import com.itss.shops.dto.SanPhamDTO;
-import com.itss.shops.entity.SanPham;
-import com.itss.shops.repository.predicate.SanPhamPredicate;
-import com.querydsl.core.types.Predicate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
 
@@ -29,29 +30,22 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
     @Override
     public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
         SanPham sanPham = modelMapper.map(sanPhamDTO, SanPham.class);
-        try {
-            sanPhamRepository.saveAndFlush(sanPham);
+        sanPhamRepository.saveAndFlush(sanPham);
 
-        } catch (Exception ex) {
-            throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-        }
         return modelMapper.map(sanPham, SanPhamDTO.class);
     }
 
     @Override
     public SanPhamDTO updateSanPham(SanPhamDTO sanPhamDTO) {
         SanPham sanPham = modelMapper.map(sanPhamDTO, SanPham.class);
-        if (sanPham.getSanPhamId() != null) {
-            try {
-                sanPhamRepository.saveAndFlush(sanPham);
 
-            } catch (Exception ex) {
-                throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-            }
-        } else {
-            throw new BadRequestException();
-        }
-        return modelMapper.map(sanPham, SanPhamDTO.class);
+        SanPham sanPhamUpdate = sanPhamRepository.findOne(sanPhamDTO.getSanPhamId());
+        if (sanPhamUpdate.getSanPhamId() != null) {
+            sanPhamUpdate = sanPham;
+            sanPhamRepository.saveAndFlush(sanPhamUpdate);
+        } else throw new RestException("Record doesn't exist");
+
+        return modelMapper.map(sanPhamUpdate, SanPhamDTO.class);
     }
 
     @Override
@@ -60,13 +54,9 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
         if (sanPham.getSanPhamId() != null) {
             sanPham.setTrangThaiXoa(1);
             sanPham.setThoiGianXoa(new Date());
-            try {
                 sanPhamRepository.saveAndFlush(sanPham);
-            } catch (Exception ex) {
-                throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-            }
         } else {
-            throw new BadRequestException();
+            throw new RestException("Record doesn't exist");
         }
         return sanPham.getSanPhamId();
     }
@@ -94,13 +84,6 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
 
     @Override
     public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {
-        SanPhamDTO result = new SanPhamDTO();
-        try {
-            //result = modelMapper.map(sanPhamRepository.findById(sanphamID).orElse(new SanPham()), SanPhamDTO.class);
-            result = modelMapper.map(sanPhamRepository.findOne(sanphamID), SanPhamDTO.class);
-        } catch (Exception ex) {
-
-        }
-        return result;
+        return modelMapper.map(sanPhamRepository.findOne(sanphamID), SanPhamDTO.class);
     }
 }

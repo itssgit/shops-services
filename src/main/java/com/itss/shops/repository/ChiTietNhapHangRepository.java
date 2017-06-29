@@ -8,7 +8,7 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import com.itss.shops.entity.ChiTietNhapHang;
 import com.querydsl.core.types.Predicate;
 
-public interface ChiTietNhapHangRepository extends JpaRepository<ChiTietNhapHang, Integer>, QueryDslPredicateExecutor<ChiTietNhapHang> {
+public interface ChiTietNhapHangRepository extends JpaRepository<ChiTietNhapHang, Integer>, QueryDslPredicateExecutor<ChiTietNhapHang>, ChiTietNhapHangRepositoryCustom{
 
 	public Page<ChiTietNhapHang> findAll(Predicate where, Pageable pageRequest);
 	

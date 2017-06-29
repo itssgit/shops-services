@@ -29,12 +29,8 @@ public class ChiTietSanPhamRepositoryImpl implements ChiTietSanPhamRepositoryCus
     @Override
     public ChiTietSanPhamDTO addChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO) {
         ChiTietSanPham chiTietSanPham = modelMapper.map(chiTietSanPhamDTO, ChiTietSanPham.class);
-        try {
-            chiTietSanPhamRepository.saveAndFlush(chiTietSanPham);
+        chiTietSanPhamRepository.saveAndFlush(chiTietSanPham);
 
-        } catch (Exception ex) {
-            throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-        }
         return modelMapper.map(chiTietSanPham, ChiTietSanPhamDTO.class);
     }
 
@@ -46,13 +42,8 @@ public class ChiTietSanPhamRepositoryImpl implements ChiTietSanPhamRepositoryCus
         if (chiTietSanPham != null) {
             chiTietSanPham.setTrangThaiXoa(1);
             chiTietSanPham.setThoiGianXoa(new Date());
-            try {
-                chiTietSanPhamRepository.saveAndFlush(chiTietSanPham);
-            } catch (Exception ex) {
-                throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-            }
         } else {
-            throw new BadRequestException();
+            throw new RestException("Record doesn't exist");
         }
         return chiTietSanPham.getSanPhamId();
     }
@@ -60,26 +51,19 @@ public class ChiTietSanPhamRepositoryImpl implements ChiTietSanPhamRepositoryCus
     @Override
     public ChiTietSanPhamDTO updateChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO) {
         ChiTietSanPham chiTietSanPham = modelMapper.map(chiTietSanPhamDTO, ChiTietSanPham.class);
-        if (chiTietSanPham.getChiTietSanPhamId() != null) {
-            try {
-                chiTietSanPhamRepository.saveAndFlush(chiTietSanPham);
 
-            } catch (Exception ex) {
-                throw new RestException(Errors.ERROR_CODE_DB, Errors.ERROR_CODE_DB_MSG);
-            }
-        }
-        return modelMapper.map(chiTietSanPham, ChiTietSanPhamDTO.class);
+        ChiTietSanPham chiTietSanPhamUpdate = chiTietSanPhamRepository.findOne(chiTietSanPhamDTO.getChiTietSanPhamId());
+        if (chiTietSanPhamUpdate.getChiTietSanPhamId() != null) {
+            chiTietSanPhamUpdate = chiTietSanPham;
+            chiTietSanPhamRepository.saveAndFlush(chiTietSanPhamUpdate);
+        } else throw new RestException("Record doesn't exist");
+
+        return modelMapper.map(chiTietSanPhamUpdate, ChiTietSanPhamDTO.class);
     }
 
     @Override
     public ChiTietSanPhamDTO getChiTietSanPhamDTOById(Integer chiTietSanPhamID) {
-        ChiTietSanPhamDTO result = new ChiTietSanPhamDTO();
-        try {
-            result = modelMapper.map(chiTietSanPhamRepository.findOne(chiTietSanPhamID), ChiTietSanPhamDTO.class);
-        } catch (Exception ex) {
-
-        }
-        return result;
+        return  modelMapper.map(chiTietSanPhamRepository.findOne(chiTietSanPhamID), ChiTietSanPhamDTO.class);
     }
 
     @Override

@@ -35,18 +35,26 @@ public class SanPhamServiceImpl implements SanPhamService {
     @Override
     @Transactional
     public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
-        SanPhamDTO resultDTO = sanPhamRepo.addSanPham(sanPhamDTO);
-        List<ChiTietSanPhamDTO> chiTietSanPhamDTOList = chiTietSanPhamService.addListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
-        resultDTO.setChiTietSanPhamDTOList(chiTietSanPhamDTOList);
+        if (sanPhamDTO.getSanPhamId() == null || sanPhamDTO.getSanPhamId() == 0) {
+            sanPhamDTO.setSanPhamId(null);
+            SanPhamDTO resultDTO = sanPhamRepo.addSanPham(sanPhamDTO);
 
-        return resultDTO;
+            List<ChiTietSanPhamDTO> chiTietSanPhamDTOList =
+                    chiTietSanPhamService.addListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList(), resultDTO.getSanPhamId());
+
+            resultDTO.setChiTietSanPhamDTOList(chiTietSanPhamDTOList);
+
+            return resultDTO;
+        } else throw new BadRequestException();
     }
 
     @Override
     @Transactional
     public SanPhamDTO updateSanPham(SanPhamDTO sanPhamDTO) {
-        chiTietSanPhamService.updateListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
-        return sanPhamRepo.updateSanPham(sanPhamDTO);
+        if (sanPhamDTO.getSanPhamId() != null) {
+            chiTietSanPhamService.updateListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
+            return sanPhamRepo.updateSanPham(sanPhamDTO);
+        } else throw new BadRequestException();
     }
 
     @Override

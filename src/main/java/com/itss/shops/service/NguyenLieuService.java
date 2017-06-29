@@ -14,7 +14,7 @@ public interface NguyenLieuService {
 	Integer deleteNguyenLieu(Integer nguyenLieuID);
 	
 	ListResponse<NguyenLieuDTO> getNguyenLieu(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
-	
-	Optional<NguyenLieuDTO> getNguyenLieuDTOById(Integer nguyenLieuID);
+
+	NguyenLieuDTO getNguyenLieuDTOById(Integer nguyenLieuID);
 	
 }
