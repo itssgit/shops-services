@@ -1,65 +1,65 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class HangKhuyenMaiDTO extends BaseDTO {
-	private Integer hangKhuyenMaiId;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	private int khuyenMaiId;
-	private int donHangId;
-	
-	public HangKhuyenMaiDTO() {
-		super();
-	}
+    private Integer hangKhuyenMaiId;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
+    private int khuyenMaiId;
+    private int donHangId;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public HangKhuyenMaiDTO() {
+        super();
+    }
 
-	public Integer getHangKhuyenMaiId() {
-		return hangKhuyenMaiId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setHangKhuyenMaiId(Integer hangKhuyenMaiId) {
-		this.hangKhuyenMaiId = hangKhuyenMaiId;
-	}
+    public Integer getHangKhuyenMaiId() {
+        return hangKhuyenMaiId;
+    }
 
-	public int getKhuyenMaiId() {
-		return khuyenMaiId;
-	}
+    public void setHangKhuyenMaiId(Integer hangKhuyenMaiId) {
+        this.hangKhuyenMaiId = hangKhuyenMaiId;
+    }
 
-	public void setKhuyenMaiId(int khuyenMaiId) {
-		this.khuyenMaiId = khuyenMaiId;
-	}
+    public int getKhuyenMaiId() {
+        return khuyenMaiId;
+    }
 
-	public int getDonHangId() {
-		return donHangId;
-	}
+    public void setKhuyenMaiId(int khuyenMaiId) {
+        this.khuyenMaiId = khuyenMaiId;
+    }
 
-	public void setDonHangId(int donHangId) {
-		this.donHangId = donHangId;
-	}
+    public int getDonHangId() {
+        return donHangId;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setDonHangId(int donHangId) {
+        this.donHangId = donHangId;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}	
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
+
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 }

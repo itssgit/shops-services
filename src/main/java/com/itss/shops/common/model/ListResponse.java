@@ -1,32 +1,32 @@
 package com.itss.shops.common.model;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
-public class ListResponse <T> {
-	
+public class ListResponse<T> {
+
     public List<T> getList() {
-		return list;
-	}
+        return list;
+    }
 
-	public void setList(List<T> list) {
-		this.list = list;
-	}
+    public void setList(List<T> list) {
+        this.list = list;
+    }
 
-	public Long getTotalCount() {
-		return totalCount;
-	}
+    public Long getTotalCount() {
+        return totalCount;
+    }
 
-	public void setTotalCount(Long totalCount) {
-		this.totalCount = totalCount;
-	}
+    public void setTotalCount(Long totalCount) {
+        this.totalCount = totalCount;
+    }
 
-	private List<T> list;
-    
+    private List<T> list;
+
     private Long totalCount;
-    
+
 }

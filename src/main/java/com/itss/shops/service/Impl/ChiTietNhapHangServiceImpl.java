@@ -1,36 +1,53 @@
 package com.itss.shops.service.Impl;
 
-import com.itss.shops.common.model.ListResponse;
-import com.itss.shops.dto.NguyenLieuDTO;
+import com.itss.shops.common.exception.BadRequestException;
+import com.itss.shops.dto.ChiTietNhapHangDTO;
+import com.itss.shops.repository.ChiTietNhapHangRepository;
 import com.itss.shops.service.ChiTietNhapHangService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ChiTietNhapHangServiceImpl implements ChiTietNhapHangService {
 
+    @Autowired
+    private ChiTietNhapHangRepository chiTietNhapHangRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
-    public NguyenLieuDTO addNguyenLieu(NguyenLieuDTO nguyenLieuDTO) {
-        return null;
+    public ChiTietNhapHangDTO addChiTietNhapHang(ChiTietNhapHangDTO chiTietNhapHangDTO) {
+        if (chiTietNhapHangDTO.getChiTietNhapHangId() == null || chiTietNhapHangDTO.getChiTietNhapHangId() == 0) {
+            chiTietNhapHangDTO.setChiTietNhapHangId(null);
+            return chiTietNhapHangRepository.addChiTietNhapHang(chiTietNhapHangDTO);
+        } else throw new BadRequestException();
     }
 
     @Override
-    public NguyenLieuDTO updateNguyenLieu(NguyenLieuDTO nguyenLieuDTO) {
-        return null;
+    public ChiTietNhapHangDTO updateChiTietNhapHang(ChiTietNhapHangDTO chiTietNhapHangDTO) {
+        if (chiTietNhapHangDTO.getChiTietNhapHangId() != null) {
+            return chiTietNhapHangRepository.updateChiTietNhapHang(chiTietNhapHangDTO);
+        } else {
+            throw new BadRequestException();
+        }
     }
 
     @Override
-    public Integer deleteNguyenLieu(Integer nguyenLieuID) {
-        return null;
+    public Integer deleteChiTietNhapHang(Integer chiTietNhapHangID) {
+        return chiTietNhapHangRepository.deleteChiTietNhapHang(chiTietNhapHangID);
     }
 
     @Override
-    public NguyenLieuDTO getNguyenLieuDTOById(Integer nguyenLieuID) {
-        return null;
+    public ChiTietNhapHangDTO getChiTietNhapHangDTOById(Integer chiTietNhapHangID) {
+        return chiTietNhapHangRepository.getChiTietNhapHangDTOById(chiTietNhapHangID);
     }
 
     @Override
-    public ListResponse<NguyenLieuDTO> getNguyenLieu(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText) {
-        return null;
+    public List<ChiTietNhapHangDTO> getChiTietNhapHangDtosByPhieuNhapId(Integer phieuNhapId) {
+        return chiTietNhapHangRepository.getChiTietNhapHangDtosByPhieuNhapId(phieuNhapId);
     }
 }

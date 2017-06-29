@@ -1,7 +1,5 @@
 package com.itss.shops.repository;
 
-import com.itss.shops.common.constant.Errors;
-import com.itss.shops.common.exception.BadRequestException;
 import com.itss.shops.common.exception.RestException;
 import com.itss.shops.common.model.ListResponse;
 import com.itss.shops.common.utils.MPUtils;

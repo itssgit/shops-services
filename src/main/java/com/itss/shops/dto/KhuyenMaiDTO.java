@@ -1,119 +1,119 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class KhuyenMaiDTO extends BaseDTO {
-	private Integer khuyenMaiId;
-	private Date thoiGianBatDau;
-	private Date thoiGianKetThuc;
-	private int loaiKhuyenMai;
-	private int doiTuongId;
-	private String maKhuyenMai;
-	private float giaTriPhanTram;
-	private float giaTriCoDinh;
-	private String moTa;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	
-	public KhuyenMaiDTO() {
-		super();
-	}
+    private Integer khuyenMaiId;
+    private Date thoiGianBatDau;
+    private Date thoiGianKetThuc;
+    private int loaiKhuyenMai;
+    private int doiTuongId;
+    private String maKhuyenMai;
+    private float giaTriPhanTram;
+    private float giaTriCoDinh;
+    private String moTa;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public KhuyenMaiDTO() {
+        super();
+    }
 
-	public Integer getKhuyenMaiId() {
-		return khuyenMaiId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setKhuyenMaiId(Integer khuyenMaiId) {
-		this.khuyenMaiId = khuyenMaiId;
-	}
+    public Integer getKhuyenMaiId() {
+        return khuyenMaiId;
+    }
 
-	public Date getThoiGianBatDau() {
-		return thoiGianBatDau;
-	}
+    public void setKhuyenMaiId(Integer khuyenMaiId) {
+        this.khuyenMaiId = khuyenMaiId;
+    }
 
-	public void setThoiGianBatDau(Date thoiGianBatDau) {
-		this.thoiGianBatDau = thoiGianBatDau;
-	}
+    public Date getThoiGianBatDau() {
+        return thoiGianBatDau;
+    }
 
-	public Date getThoiGianKetThuc() {
-		return thoiGianKetThuc;
-	}
+    public void setThoiGianBatDau(Date thoiGianBatDau) {
+        this.thoiGianBatDau = thoiGianBatDau;
+    }
 
-	public void setThoiGianKetThuc(Date thoiGianKetThuc) {
-		this.thoiGianKetThuc = thoiGianKetThuc;
-	}
+    public Date getThoiGianKetThuc() {
+        return thoiGianKetThuc;
+    }
 
-	public int getLoaiKhuyenMai() {
-		return loaiKhuyenMai;
-	}
+    public void setThoiGianKetThuc(Date thoiGianKetThuc) {
+        this.thoiGianKetThuc = thoiGianKetThuc;
+    }
 
-	public void setLoaiKhuyenMai(int loaiKhuyenMai) {
-		this.loaiKhuyenMai = loaiKhuyenMai;
-	}
+    public int getLoaiKhuyenMai() {
+        return loaiKhuyenMai;
+    }
 
-	public int getDoiTuongId() {
-		return doiTuongId;
-	}
+    public void setLoaiKhuyenMai(int loaiKhuyenMai) {
+        this.loaiKhuyenMai = loaiKhuyenMai;
+    }
 
-	public void setDoiTuongId(int doiTuongId) {
-		this.doiTuongId = doiTuongId;
-	}
+    public int getDoiTuongId() {
+        return doiTuongId;
+    }
 
-	public String getMaKhuyenMai() {
-		return maKhuyenMai;
-	}
+    public void setDoiTuongId(int doiTuongId) {
+        this.doiTuongId = doiTuongId;
+    }
 
-	public void setMaKhuyenMai(String maKhuyenMai) {
-		this.maKhuyenMai = maKhuyenMai;
-	}
+    public String getMaKhuyenMai() {
+        return maKhuyenMai;
+    }
 
-	public float getGiaTriPhanTram() {
-		return giaTriPhanTram;
-	}
+    public void setMaKhuyenMai(String maKhuyenMai) {
+        this.maKhuyenMai = maKhuyenMai;
+    }
 
-	public void setGiaTriPhanTram(float giaTriPhanTram) {
-		this.giaTriPhanTram = giaTriPhanTram;
-	}
+    public float getGiaTriPhanTram() {
+        return giaTriPhanTram;
+    }
 
-	public float getGiaTriCoDinh() {
-		return giaTriCoDinh;
-	}
+    public void setGiaTriPhanTram(float giaTriPhanTram) {
+        this.giaTriPhanTram = giaTriPhanTram;
+    }
 
-	public void setGiaTriCoDinh(float giaTriCoDinh) {
-		this.giaTriCoDinh = giaTriCoDinh;
-	}
+    public float getGiaTriCoDinh() {
+        return giaTriCoDinh;
+    }
 
-	public String getMoTa() {
-		return moTa;
-	}
+    public void setGiaTriCoDinh(float giaTriCoDinh) {
+        this.giaTriCoDinh = giaTriCoDinh;
+    }
 
-	public void setMoTa(String moTa) {
-		this.moTa = moTa;
-	}
+    public String getMoTa() {
+        return moTa;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}	
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
+
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 }

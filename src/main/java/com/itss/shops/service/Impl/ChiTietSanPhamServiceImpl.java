@@ -78,7 +78,6 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
     }
 
     @Override
-    @Transactional
     public List<ChiTietSanPhamDTO> getListChiTietSanPhamDTOBySanPhamId(Integer sanPhamID) {
         return chiTietSanPhamRepository.getListChiTietSanPhamDTOBySanPhamId(sanPhamID);
     }

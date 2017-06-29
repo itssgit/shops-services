@@ -1,7 +1,6 @@
 package com.itss.shops.common.model;
 
 import com.itss.shops.common.constant.Constants;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,55 +9,55 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PageRequestVO {
-	
-	public int getPageNum() {
-		return pageNum;
-	}
 
-	public int getPageSize() {
-		return pageSize;
-	}
+    public int getPageNum() {
+        return pageNum;
+    }
 
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
+    public int getPageSize() {
+        return pageSize;
+    }
 
-	public String getSortBy() {
-		return sortBy;
-	}
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 
-	public void setSortBy(String sortBy) {
-		this.sortBy = sortBy;
-	}
+    public String getSortBy() {
+        return sortBy;
+    }
 
-	public String getSortOrder() {
-		return sortOrder;
-	}
+    public void setSortBy(String sortBy) {
+        this.sortBy = sortBy;
+    }
 
-	public void setSortOrder(String sortOrder) {
-		this.sortOrder = sortOrder;
-	}
+    public String getSortOrder() {
+        return sortOrder;
+    }
 
-	public String getSearchText() {
-		return searchText;
-	}
+    public void setSortOrder(String sortOrder) {
+        this.sortOrder = sortOrder;
+    }
 
-	public void setSearchText(String searchText) {
-		this.searchText = searchText;
-	}
+    public String getSearchText() {
+        return searchText;
+    }
 
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
+    public void setSearchText(String searchText) {
+        this.searchText = searchText;
+    }
 
-	private int pageNum = Constants.PAGE_DEFAULT_START_NUM;
-	
-	private int pageSize = Constants.PAGE_DEFAULT_LIMIT_NUM;
-	
-	private String sortBy = Constants.PAGE_DEFAULT_ORDER_BY;
-	
-	private String sortOrder = Constants.DESCENDING;
-	
-	private String searchText = "";
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    private int pageNum = Constants.PAGE_DEFAULT_START_NUM;
+
+    private int pageSize = Constants.PAGE_DEFAULT_LIMIT_NUM;
+
+    private String sortBy = Constants.PAGE_DEFAULT_ORDER_BY;
+
+    private String sortOrder = Constants.DESCENDING;
+
+    private String searchText = "";
 
 }

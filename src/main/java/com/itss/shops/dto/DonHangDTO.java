@@ -1,103 +1,103 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+import java.util.List;
+
 @JsonInclude(Include.NON_NULL)
 public class DonHangDTO extends BaseDTO {
-	private Integer donHangId;
-	private Date thoiGian;
-	private float tongTien;
-	private String ghiChu;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	private int banId;
-	private int nhanVienId;
+    private Integer donHangId;
+    private Date thoiGian;
+    private float tongTien;
+    private String ghiChu;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
+    private int banId;
+    private int nhanVienId;
 
-	private List<KhuyenMaiDTO> khuyenMaiDTOList;
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    private List<KhuyenMaiDTO> khuyenMaiDTOList;
 
-	public DonHangDTO() {
-		super();
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public Integer getDonHangId() {
-		return donHangId;
-	}
+    public DonHangDTO() {
+        super();
+    }
 
-	public void setDonHangId(Integer donHangId) {
-		this.donHangId = donHangId;
-	}
+    public Integer getDonHangId() {
+        return donHangId;
+    }
 
-	public Date getThoiGian() {
-		return thoiGian;
-	}
+    public void setDonHangId(Integer donHangId) {
+        this.donHangId = donHangId;
+    }
 
-	public void setThoiGian(Date thoiGian) {
-		this.thoiGian = thoiGian;
-	}
+    public Date getThoiGian() {
+        return thoiGian;
+    }
 
-	public float getTongTien() {
-		return tongTien;
-	}
+    public void setThoiGian(Date thoiGian) {
+        this.thoiGian = thoiGian;
+    }
 
-	public void setTongTien(float tongTien) {
-		this.tongTien = tongTien;
-	}
+    public float getTongTien() {
+        return tongTien;
+    }
 
-	public String getGhiChu() {
-		return ghiChu;
-	}
+    public void setTongTien(float tongTien) {
+        this.tongTien = tongTien;
+    }
 
-	public void setGhiChu(String ghiChu) {
-		this.ghiChu = ghiChu;
-	}
+    public String getGhiChu() {
+        return ghiChu;
+    }
 
-	public int getBanId() {
-		return banId;
-	}
+    public void setGhiChu(String ghiChu) {
+        this.ghiChu = ghiChu;
+    }
 
-	public void setBanId(int banId) {
-		this.banId = banId;
-	}
+    public int getBanId() {
+        return banId;
+    }
 
-	public int getNhanVienId() {
-		return nhanVienId;
-	}
+    public void setBanId(int banId) {
+        this.banId = banId;
+    }
 
-	public void setNhanVienId(int nhanVienId) {
-		this.nhanVienId = nhanVienId;
-	}
+    public int getNhanVienId() {
+        return nhanVienId;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setNhanVienId(int nhanVienId) {
+        this.nhanVienId = nhanVienId;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
 
-	public List<KhuyenMaiDTO> getKhuyenMaiDTOList() {
-		return khuyenMaiDTOList;
-	}
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 
-	public void setKhuyenMaiDTOList(List<KhuyenMaiDTO> khuyenMaiDTOList) {
-		this.khuyenMaiDTOList = khuyenMaiDTOList;
-	}
+    public List<KhuyenMaiDTO> getKhuyenMaiDTOList() {
+        return khuyenMaiDTOList;
+    }
+
+    public void setKhuyenMaiDTOList(List<KhuyenMaiDTO> khuyenMaiDTOList) {
+        this.khuyenMaiDTOList = khuyenMaiDTOList;
+    }
 }

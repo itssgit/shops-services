@@ -9,106 +9,106 @@ import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class SanPhamDTO extends BaseDTO {
-	private Integer sanPhamId;
-	private Integer nhomSanPhamId;
-	private float donGia;
-	private String tenSanPham;
-	private String moTa;
-	private String hinhAnh;
-	private boolean hienThi;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
+    private Integer sanPhamId;
+    private Integer nhomSanPhamId;
+    private float donGia;
+    private String tenSanPham;
+    private String moTa;
+    private String hinhAnh;
+    private boolean hienThi;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	private List<ChiTietSanPhamDTO> chiTietSanPhamDTOList;
-	
-	public SanPhamDTO() {
-		super();
-	}
+    private List<ChiTietSanPhamDTO> chiTietSanPhamDTOList;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public SanPhamDTO() {
+        super();
+    }
 
-	public Integer getSanPhamId() {
-		return sanPhamId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setSanPhamId(Integer sanPhamId) {
-		this.sanPhamId = sanPhamId;
-	}
+    public Integer getSanPhamId() {
+        return sanPhamId;
+    }
 
-	public Integer getNhomSanPhamId() {
-		return nhomSanPhamId;
-	}
+    public void setSanPhamId(Integer sanPhamId) {
+        this.sanPhamId = sanPhamId;
+    }
 
-	public void setNhomSanPhamId(Integer nhomSanPhamId) {
-		this.nhomSanPhamId = nhomSanPhamId;
-	}
+    public Integer getNhomSanPhamId() {
+        return nhomSanPhamId;
+    }
 
-	public float getDonGia() {
-		return donGia;
-	}
+    public void setNhomSanPhamId(Integer nhomSanPhamId) {
+        this.nhomSanPhamId = nhomSanPhamId;
+    }
 
-	public void setDonGia(float donGia) {
-		this.donGia = donGia;
-	}
+    public float getDonGia() {
+        return donGia;
+    }
 
-	public String getMoTa() {
-		return moTa;
-	}
+    public void setDonGia(float donGia) {
+        this.donGia = donGia;
+    }
 
-	public void setMoTa(String moTa) {
-		this.moTa = moTa;
-	}
+    public String getMoTa() {
+        return moTa;
+    }
 
-	public String getHinhAnh() {
-		return hinhAnh;
-	}
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
 
-	public void setHinhAnh(String hinhAnh) {
-		this.hinhAnh = hinhAnh;
-	}
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
 
-	public boolean isHienThi() {
-		return hienThi;
-	}
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
 
-	public void setHienThi(boolean hienThi) {
-		this.hienThi = hienThi;
-	}
+    public boolean isHienThi() {
+        return hienThi;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setHienThi(boolean hienThi) {
+        this.hienThi = hienThi;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
 
-	public String getTenSanPham() {
-		return tenSanPham;
-	}
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 
-	public void setTenSanPham(String tenSanPham) {
-		this.tenSanPham = tenSanPham;
-	}
+    public String getTenSanPham() {
+        return tenSanPham;
+    }
 
-	public List<ChiTietSanPhamDTO> getChiTietSanPhamDTOList() {
-		return chiTietSanPhamDTOList;
-	}
+    public void setTenSanPham(String tenSanPham) {
+        this.tenSanPham = tenSanPham;
+    }
 
-	public void setChiTietSanPhamDTOList(List<ChiTietSanPhamDTO> chiTietSanPhamDTOList) {
-		this.chiTietSanPhamDTOList = chiTietSanPhamDTOList;
-	}
+    public List<ChiTietSanPhamDTO> getChiTietSanPhamDTOList() {
+        return chiTietSanPhamDTOList;
+    }
+
+    public void setChiTietSanPhamDTOList(List<ChiTietSanPhamDTO> chiTietSanPhamDTOList) {
+        this.chiTietSanPhamDTOList = chiTietSanPhamDTOList;
+    }
 
 
 }

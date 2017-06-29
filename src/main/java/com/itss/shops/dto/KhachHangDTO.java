@@ -1,128 +1,128 @@
 package com.itss.shops.dto;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import java.io.Serializable;
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class KhachHangDTO implements Serializable {
-	private Integer khachhangId;
-	private String maKhachhang;
-	private String tenKhachhang;
-	private String sdt;
-	private String email;
-	private byte gioitinh;
-	private String diachi;
-	private int diemTichluy;
-	private int congno;
-	private int trangthai;
-	private Integer trangthaiXoa;
-	private Date thoigianXoa;
+    private Integer khachhangId;
+    private String maKhachhang;
+    private String tenKhachhang;
+    private String sdt;
+    private String email;
+    private byte gioitinh;
+    private String diachi;
+    private int diemTichluy;
+    private int congno;
+    private int trangthai;
+    private Integer trangthaiXoa;
+    private Date thoigianXoa;
 
-	public KhachHangDTO() {
-		super();
-	}
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public KhachHangDTO() {
+        super();
+    }
 
-	public Integer getKhachhangId() {
-		return khachhangId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setKhachhangId(Integer khachhangId) {
-		this.khachhangId = khachhangId;
-	}
+    public Integer getKhachhangId() {
+        return khachhangId;
+    }
 
-	public String getMaKhachhang() {
-		return maKhachhang;
-	}
+    public void setKhachhangId(Integer khachhangId) {
+        this.khachhangId = khachhangId;
+    }
 
-	public void setMaKhachhang(String maKhachhang) {
-		this.maKhachhang = maKhachhang;
-	}
+    public String getMaKhachhang() {
+        return maKhachhang;
+    }
 
-	public String getTenKhachhang() {
-		return tenKhachhang;
-	}
+    public void setMaKhachhang(String maKhachhang) {
+        this.maKhachhang = maKhachhang;
+    }
 
-	public void setTenKhachhang(String tenKhachhang) {
-		this.tenKhachhang = tenKhachhang;
-	}
+    public String getTenKhachhang() {
+        return tenKhachhang;
+    }
 
-	public String getSdt() {
-		return sdt;
-	}
+    public void setTenKhachhang(String tenKhachhang) {
+        this.tenKhachhang = tenKhachhang;
+    }
 
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
+    public String getSdt() {
+        return sdt;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public byte getGioitinh() {
-		return gioitinh;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setGioitinh(byte gioitinh) {
-		this.gioitinh = gioitinh;
-	}
+    public byte getGioitinh() {
+        return gioitinh;
+    }
 
-	public String getDiachi() {
-		return diachi;
-	}
+    public void setGioitinh(byte gioitinh) {
+        this.gioitinh = gioitinh;
+    }
 
-	public void setDiachi(String diachi) {
-		this.diachi = diachi;
-	}
+    public String getDiachi() {
+        return diachi;
+    }
 
-	public int getDiemTichluy() {
-		return diemTichluy;
-	}
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
 
-	public void setDiemTichluy(int diemTichluy) {
-		this.diemTichluy = diemTichluy;
-	}
+    public int getDiemTichluy() {
+        return diemTichluy;
+    }
 
-	public int getCongno() {
-		return congno;
-	}
+    public void setDiemTichluy(int diemTichluy) {
+        this.diemTichluy = diemTichluy;
+    }
 
-	public void setCongno(int congno) {
-		this.congno = congno;
-	}
+    public int getCongno() {
+        return congno;
+    }
 
-	public int getTrangthai() {
-		return trangthai;
-	}
+    public void setCongno(int congno) {
+        this.congno = congno;
+    }
 
-	public void setTrangthai(int trangthai) {
-		this.trangthai = trangthai;
-	}
+    public int getTrangthai() {
+        return trangthai;
+    }
 
-	public Integer getTrangthaiXoa() {
-		return trangthaiXoa;
-	}
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
 
-	public void setTrangthaiXoa(Integer trangthaiXoa) {
-		this.trangthaiXoa = trangthaiXoa;
-	}
+    public Integer getTrangthaiXoa() {
+        return trangthaiXoa;
+    }
 
-	public Date getThoigianXoa() {
-		return thoigianXoa;
-	}
+    public void setTrangthaiXoa(Integer trangthaiXoa) {
+        this.trangthaiXoa = trangthaiXoa;
+    }
 
-	public void setThoigianXoa(Date thoigianXoa) {
-		this.thoigianXoa = thoigianXoa;
-	}	
+    public Date getThoigianXoa() {
+        return thoigianXoa;
+    }
+
+    public void setThoigianXoa(Date thoigianXoa) {
+        this.thoigianXoa = thoigianXoa;
+    }
 }

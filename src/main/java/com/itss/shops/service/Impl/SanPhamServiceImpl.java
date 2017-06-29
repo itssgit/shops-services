@@ -1,27 +1,17 @@
 package com.itss.shops.service.Impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.itss.shops.common.exception.BadRequestException;
-import com.itss.shops.dto.ChiTietSanPhamDTO;
-import com.itss.shops.service.ChiTietSanPhamService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
-
 import com.itss.shops.common.model.ListResponse;
-import com.itss.shops.common.utils.MPUtils;
-import com.itss.shops.dto.AccountDTO;
+import com.itss.shops.dto.ChiTietSanPhamDTO;
 import com.itss.shops.dto.SanPhamDTO;
-import com.itss.shops.entity.Account;
-import com.itss.shops.entity.SanPham;
 import com.itss.shops.repository.SanPhamRepository;
-import com.itss.shops.repository.predicate.AccountPredicate;
+import com.itss.shops.service.ChiTietSanPhamService;
 import com.itss.shops.service.SanPhamService;
-import com.querydsl.core.types.Predicate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {

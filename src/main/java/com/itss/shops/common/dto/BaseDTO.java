@@ -5,28 +5,28 @@ import java.util.Date;
 
 public abstract class BaseDTO implements Serializable {
 
-	
-	private Date createdTime;
-	private Date updatedTime;
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4154596743163219674L;
 
-	public Date getCreatedTime() {
-		return createdTime;
-	}
+    private Date createdTime;
+    private Date updatedTime;
 
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = -4154596743163219674L;
 
-	public Date getUpdatedTime() {
-		return updatedTime;
-	}
+    public Date getCreatedTime() {
+        return createdTime;
+    }
 
-	public void setUpdatedTime(Date updatedTime) {
-		this.updatedTime = updatedTime;
-	}
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Date getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(Date updatedTime) {
+        this.updatedTime = updatedTime;
+    }
 }

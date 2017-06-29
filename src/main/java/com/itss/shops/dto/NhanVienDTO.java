@@ -1,85 +1,85 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class NhanVienDTO extends BaseDTO {
-	private Integer nhanVienId;
-	private String hoTen;
-	private Date ngaySinh;
-	private String cmnd;
-	private String sdt;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	
-	public NhanVienDTO() {
-		super();
-	}
+    private Integer nhanVienId;
+    private String hoTen;
+    private Date ngaySinh;
+    private String cmnd;
+    private String sdt;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public NhanVienDTO() {
+        super();
+    }
 
-	public Integer getNhanVienId() {
-		return nhanVienId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setNhanVienId(Integer nhanVienId) {
-		this.nhanVienId = nhanVienId;
-	}
+    public Integer getNhanVienId() {
+        return nhanVienId;
+    }
 
-	public String getHoTen() {
-		return hoTen;
-	}
+    public void setNhanVienId(Integer nhanVienId) {
+        this.nhanVienId = nhanVienId;
+    }
 
-	public void setHoTen(String hoTen) {
-		this.hoTen = hoTen;
-	}
+    public String getHoTen() {
+        return hoTen;
+    }
 
-	public Date getNgaySinh() {
-		return ngaySinh;
-	}
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
 
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
-	}
+    public Date getNgaySinh() {
+        return ngaySinh;
+    }
 
-	public String getCmnd() {
-		return cmnd;
-	}
+    public void setNgaySinh(Date ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
 
-	public void setCmnd(String cmnd) {
-		this.cmnd = cmnd;
-	}
+    public String getCmnd() {
+        return cmnd;
+    }
 
-	public String getSdt() {
-		return sdt;
-	}
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
 
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
+    public String getSdt() {
+        return sdt;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}	
-	
-	
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
+
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
+
+
 }

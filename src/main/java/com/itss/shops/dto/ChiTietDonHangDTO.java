@@ -1,85 +1,86 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class ChiTietDonHangDTO extends BaseDTO {
-	private Integer chiTietDonHangId;
-	private int sanPhamId;
-	private int soLuong;
-	private int donHangId;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
+    private Integer chiTietDonHangId;
+    private int sanPhamId;
+    private int soLuong;
+    private int donHangId;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	public ChiTietDonHangDTO() {
-		super();
-	}
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
-	
-	
-	public Integer getChiTietDonHangId() {
-		return chiTietDonHangId;
-	}
+    public ChiTietDonHangDTO() {
+        super();
+    }
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
 
-	public void setChiTietDonHangId(Integer chiTietDonHangId) {
-		this.chiTietDonHangId = chiTietDonHangId;
-	}
+    public Integer getChiTietDonHangId() {
+        return chiTietDonHangId;
+    }
 
 
-	public int getSanPhamId() {
-		return sanPhamId;
-	}
+    public void setChiTietDonHangId(Integer chiTietDonHangId) {
+        this.chiTietDonHangId = chiTietDonHangId;
+    }
 
 
-	public void setSanPhamId(int sanPhamId) {
-		this.sanPhamId = sanPhamId;
-	}
+    public int getSanPhamId() {
+        return sanPhamId;
+    }
 
 
-	public int getSoLuong() {
-		return soLuong;
-	}
+    public void setSanPhamId(int sanPhamId) {
+        this.sanPhamId = sanPhamId;
+    }
 
 
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
-	}
+    public int getSoLuong() {
+        return soLuong;
+    }
 
 
-	public int getDonHangId() {
-		return donHangId;
-	}
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
 
 
-	public void setDonHangId(int donHangId) {
-		this.donHangId = donHangId;
-	}
+    public int getDonHangId() {
+        return donHangId;
+    }
 
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setDonHangId(int donHangId) {
+        this.donHangId = donHangId;
+    }
 
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}	
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
+
+
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 }

@@ -1,12 +1,8 @@
 package com.itss.shops.repository;
 
-import com.itss.shops.common.constant.Errors;
-import com.itss.shops.common.exception.BadRequestException;
 import com.itss.shops.common.exception.RestException;
 import com.itss.shops.common.utils.MPUtils;
-import com.itss.shops.dto.NguyenLieuDTO;
 import com.itss.shops.dto.SanPhamDTO;
-import com.itss.shops.entity.NguyenLieu;
 import com.itss.shops.entity.SanPham;
 import com.itss.shops.repository.predicate.SanPhamPredicate;
 import com.querydsl.core.types.Predicate;
@@ -54,7 +50,7 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
         if (sanPham.getSanPhamId() != null) {
             sanPham.setTrangThaiXoa(1);
             sanPham.setThoiGianXoa(new Date());
-                sanPhamRepository.saveAndFlush(sanPham);
+            sanPhamRepository.saveAndFlush(sanPham);
         } else {
             throw new RestException("Record doesn't exist");
         }

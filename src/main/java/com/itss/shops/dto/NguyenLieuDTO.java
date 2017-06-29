@@ -1,76 +1,76 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class NguyenLieuDTO extends BaseDTO {
-	private Integer nguyenLieuId;
-	private int soLuong;
-	private String donVi;
-	private String ten;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	
-	public NguyenLieuDTO() {
-		super();
-	}
+    private Integer nguyenLieuId;
+    private int soLuong;
+    private String donVi;
+    private String ten;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public NguyenLieuDTO() {
+        super();
+    }
 
-	public Integer getNguyenLieuId() {
-		return nguyenLieuId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setNguyenLieuId(Integer nguyenLieuId) {
-		this.nguyenLieuId = nguyenLieuId;
-	}
+    public Integer getNguyenLieuId() {
+        return nguyenLieuId;
+    }
 
-	public int getSoLuong() {
-		return soLuong;
-	}
+    public void setNguyenLieuId(Integer nguyenLieuId) {
+        this.nguyenLieuId = nguyenLieuId;
+    }
 
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
-	}
+    public int getSoLuong() {
+        return soLuong;
+    }
 
-	public String getDonVi() {
-		return donVi;
-	}
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
 
-	public void setDonVi(String donVi) {
-		this.donVi = donVi;
-	}
+    public String getDonVi() {
+        return donVi;
+    }
 
-	public String getTen() {
-		return ten;
-	}
+    public void setDonVi(String donVi) {
+        this.donVi = donVi;
+    }
 
-	public void setTen(String ten) {
-		this.ten = ten;
-	}
+    public String getTen() {
+        return ten;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
 
-	
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
+
+
 }

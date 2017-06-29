@@ -1,74 +1,74 @@
 package com.itss.shops.dto;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
+import java.util.Date;
+
 @JsonInclude(Include.NON_NULL)
 public class PhieuNhapDTO extends BaseDTO {
-	private Integer phieuNhapId;
-	private Date ngayNhap;
-	private float tongGiaTri;
-	private int nhanVienId;
-	private Integer trangThaiXoa;
-	private Date thoiGianXoa;
-	
-	public PhieuNhapDTO() {
-		super();
-	}
+    private Integer phieuNhapId;
+    private Date ngayNhap;
+    private float tongGiaTri;
+    private int nhanVienId;
+    private Integer trangThaiXoa;
+    private Date thoiGianXoa;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 16207331533605865L;
+    public PhieuNhapDTO() {
+        super();
+    }
 
-	public Integer getPhieuNhapId() {
-		return phieuNhapId;
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 16207331533605865L;
 
-	public void setPhieuNhapId(Integer phieuNhapId) {
-		this.phieuNhapId = phieuNhapId;
-	}
+    public Integer getPhieuNhapId() {
+        return phieuNhapId;
+    }
 
-	public Date getNgayNhap() {
-		return ngayNhap;
-	}
+    public void setPhieuNhapId(Integer phieuNhapId) {
+        this.phieuNhapId = phieuNhapId;
+    }
 
-	public void setNgayNhap(Date ngayNhap) {
-		this.ngayNhap = ngayNhap;
-	}
+    public Date getNgayNhap() {
+        return ngayNhap;
+    }
 
-	public float getTongGiaTri() {
-		return tongGiaTri;
-	}
+    public void setNgayNhap(Date ngayNhap) {
+        this.ngayNhap = ngayNhap;
+    }
 
-	public void setTongGiaTri(float tongGiaTri) {
-		this.tongGiaTri = tongGiaTri;
-	}
+    public float getTongGiaTri() {
+        return tongGiaTri;
+    }
 
-	public int getNhanVienId() {
-		return nhanVienId;
-	}
+    public void setTongGiaTri(float tongGiaTri) {
+        this.tongGiaTri = tongGiaTri;
+    }
 
-	public void setNhanVienId(int nhanVienId) {
-		this.nhanVienId = nhanVienId;
-	}
+    public int getNhanVienId() {
+        return nhanVienId;
+    }
 
-	public Integer getTrangThaiXoa() {
-		return trangThaiXoa;
-	}
+    public void setNhanVienId(int nhanVienId) {
+        this.nhanVienId = nhanVienId;
+    }
 
-	public void setTrangThaiXoa(Integer trangThaiXoa) {
-		this.trangThaiXoa = trangThaiXoa;
-	}
+    public Integer getTrangThaiXoa() {
+        return trangThaiXoa;
+    }
 
-	public Date getThoiGianXoa() {
-		return thoiGianXoa;
-	}
+    public void setTrangThaiXoa(Integer trangThaiXoa) {
+        this.trangThaiXoa = trangThaiXoa;
+    }
 
-	public void setThoiGianXoa(Date thoiGianXoa) {
-		this.thoiGianXoa = thoiGianXoa;
-	}
+    public Date getThoiGianXoa() {
+        return thoiGianXoa;
+    }
+
+    public void setThoiGianXoa(Date thoiGianXoa) {
+        this.thoiGianXoa = thoiGianXoa;
+    }
 }

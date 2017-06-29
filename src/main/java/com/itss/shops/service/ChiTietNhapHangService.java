@@ -1,25 +1,19 @@
 package com.itss.shops.service;
 
-import java.util.Optional;
+import com.itss.shops.dto.ChiTietNhapHangDTO;
 
-import com.itss.shops.common.model.ListResponse;
-import com.itss.shops.dto.AccountDTO;
-import com.itss.shops.dto.NguyenLieuDTO;
-import com.itss.shops.entity.Account;
-import com.itss.shops.vo.request.AccountRequestVo;
-import com.itss.shops.vo.response.AccountResponse;
+import java.util.List;
 
 public interface ChiTietNhapHangService {
 
-    NguyenLieuDTO addNguyenLieu(NguyenLieuDTO nguyenLieuDTO);
+    ChiTietNhapHangDTO addChiTietNhapHang(ChiTietNhapHangDTO chiTietNhapHangDTO);
 
-    NguyenLieuDTO updateNguyenLieu(NguyenLieuDTO nguyenLieuDTO);
+    ChiTietNhapHangDTO updateChiTietNhapHang(ChiTietNhapHangDTO chiTietNhapHangDTO);
 
-    Integer deleteNguyenLieu(Integer nguyenLieuID);
+    Integer deleteChiTietNhapHang(Integer chiTietNhapHangID);
 
-    NguyenLieuDTO getNguyenLieuDTOById(Integer nguyenLieuID);
+    ChiTietNhapHangDTO getChiTietNhapHangDTOById(Integer chiTietNhapHangID);
 
-    ListResponse<NguyenLieuDTO> getNguyenLieu(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
-
+    List<ChiTietNhapHangDTO> getChiTietNhapHangDtosByPhieuNhapId(Integer phieuNhapId);
 
 }
