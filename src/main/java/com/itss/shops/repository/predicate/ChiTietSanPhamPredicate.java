@@ -10,7 +10,7 @@ public class ChiTietSanPhamPredicate {
         QChiTietSanPham chiTietSanPham = QChiTietSanPham.chiTietSanPham;
         BooleanExpression boolExpression;
         boolExpression = chiTietSanPham.sanPhamId.eq(sanphamId);
-        boolExpression = boolExpression.and(chiTietSanPham.trangThaiXoa.eq(0));
+        boolExpression = boolExpression.and(chiTietSanPham.trangThaiXoa.isNull().or(chiTietSanPham.trangThaiXoa.eq(0)));
         return boolExpression;
     }
 

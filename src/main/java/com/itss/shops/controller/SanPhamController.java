@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -51,6 +52,19 @@ public class SanPhamController {
             response.successfulRespone(sanPhamService.deleteSanPham(sanPhamId));
         } catch (Exception ex) {
             response.failedRespone(sanPhamId, ex.getMessage());
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/deleteList", method = RequestMethod.PUT, produces = "application/json")
+    public CommonResponse<List<Integer>> deleteListSanPham(@RequestBody @Valid final List<Integer> sanPhamIdList) {
+        CommonResponse<List<Integer>> response = new CommonResponse<>();
+
+        try {
+            response.successfulRespone(sanPhamService.deleteListSanPham(sanPhamIdList));
+        } catch (Exception ex) {
+            response.failedRespone(sanPhamIdList, ex.getMessage());
         }
 
         return response;

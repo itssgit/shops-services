@@ -10,7 +10,7 @@ public class NguyenLieuPredicate {
         QNguyenLieu nguyenLieu = QNguyenLieu.nguyenLieu;
         BooleanExpression boolExpression;
         boolExpression = nguyenLieu.nguyenLieuId.gt(0);
-        boolExpression = boolExpression.and(nguyenLieu.trangThaiXoa.eq(0));
+        boolExpression = boolExpression.and(nguyenLieu.trangThaiXoa.eq(0).or(nguyenLieu.trangThaiXoa.isNull()));
 
         if (searchText != null && !searchText.isEmpty()) {
             boolExpression = boolExpression.

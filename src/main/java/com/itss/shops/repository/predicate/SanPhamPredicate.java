@@ -10,7 +10,7 @@ public class SanPhamPredicate {
         QSanPham sanPham = QSanPham.sanPham;
         BooleanExpression boolExpression;
         boolExpression = sanPham.sanPhamId.gt(0);
-        boolExpression = boolExpression.and(sanPham.trangThaiXoa.eq(0));
+        boolExpression = boolExpression.and(sanPham.trangThaiXoa.eq(0).or(sanPham.trangThaiXoa.isNull()));
 
         if (searchText != null && !searchText.isEmpty()) {
             boolExpression = boolExpression.

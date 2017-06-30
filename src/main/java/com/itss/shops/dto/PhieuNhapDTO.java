@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
 
 import java.util.Date;
+import java.util.List;
 
 @JsonInclude(Include.NON_NULL)
 public class PhieuNhapDTO extends BaseDTO {
@@ -14,6 +15,7 @@ public class PhieuNhapDTO extends BaseDTO {
     private int nhanVienId;
     private Integer trangThaiXoa;
     private Date thoiGianXoa;
+    private List<ChiTietNhapHangDTO> chiTietNhapHangDTOList;
 
     public PhieuNhapDTO() {
         super();
@@ -70,5 +72,13 @@ public class PhieuNhapDTO extends BaseDTO {
 
     public void setThoiGianXoa(Date thoiGianXoa) {
         this.thoiGianXoa = thoiGianXoa;
+    }
+
+    public List<ChiTietNhapHangDTO> getChiTietNhapHangDTOList() {
+        return chiTietNhapHangDTOList;
+    }
+
+    public void setChiTietNhapHangDTOList(List<ChiTietNhapHangDTO> chiTietNhapHangDTOList) {
+        this.chiTietNhapHangDTOList = chiTietNhapHangDTOList;
     }
 }

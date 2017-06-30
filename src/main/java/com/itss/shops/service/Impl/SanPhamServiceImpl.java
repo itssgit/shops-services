@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -52,6 +53,22 @@ public class SanPhamServiceImpl implements SanPhamService {
     public Integer deleteSanPham(Integer sanphamID) {
         chiTietSanPhamService.deleteChiTietSanPhamBySanPhamID(sanphamID);
         return sanPhamRepo.deleteSanPhamById(sanphamID);
+    }
+
+    @Override
+    public List<Integer> deleteListSanPham(List<Integer> listSanPhamId) {
+        List<Integer> result = new ArrayList<>();
+
+        listSanPhamId.forEach(i -> {
+            try {
+                this.deleteSanPham(i);
+                result.add(i);
+            } catch (Exception ex) {
+                //ghi log
+            }
+        });
+
+        return result;
     }
 
     @Override
