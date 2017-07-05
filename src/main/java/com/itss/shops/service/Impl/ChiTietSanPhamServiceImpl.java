@@ -3,7 +3,9 @@ package com.itss.shops.service.Impl;
 import com.itss.shops.common.exception.BadRequestException;
 import com.itss.shops.dto.ChiTietSanPhamDTO;
 import com.itss.shops.repository.ChiTietSanPhamRepository;
+import com.itss.shops.repository.NguyenLieuRepository;
 import com.itss.shops.service.ChiTietSanPhamService;
+import com.itss.shops.service.NguyenLieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,9 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
     @Autowired
     private ChiTietSanPhamRepository chiTietSanPhamRepository;
+
+    @Autowired
+    private NguyenLieuService nguyenLieuService;
 
     @Override
     public ChiTietSanPhamDTO addChiTietSanPham(ChiTietSanPhamDTO chiTietSanPhamDTO) {
@@ -79,7 +84,11 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
 
     @Override
     public List<ChiTietSanPhamDTO> getListChiTietSanPhamDTOBySanPhamId(Integer sanPhamID) {
-        return chiTietSanPhamRepository.getListChiTietSanPhamDTOBySanPhamId(sanPhamID);
+        List<ChiTietSanPhamDTO> chiTietSanPhamDTOList = chiTietSanPhamRepository.getListChiTietSanPhamDTOBySanPhamId(sanPhamID);
+        chiTietSanPhamDTOList.forEach( chiTietSanPhamDTO -> {
+            chiTietSanPhamDTO.setNguyenLieuDTO(nguyenLieuService.getNguyenLieuDTOById(chiTietSanPhamDTO.getNguyenLieuId()));
+        });
+        return chiTietSanPhamDTOList;
     }
 
     @Override

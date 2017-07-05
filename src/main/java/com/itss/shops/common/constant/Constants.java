@@ -17,4 +17,6 @@ public class Constants {
     public static final String PAGE_DEFAULT_ORDER_BY = "updatedTime";
     public static final String ASCENDING = "ascending";
     public static final String DESCENDING = "descending";
+
+    public static final String DATA_DIR = "../data/shops-services/";
 }

@@ -18,6 +18,7 @@ public class SanPhamDTO extends BaseDTO {
     private boolean hienThi;
     private Integer trangThaiXoa;
     private Date thoiGianXoa;
+    private String imgBase64;
 
     private List<ChiTietSanPhamDTO> chiTietSanPhamDTOList;
 
@@ -111,4 +112,11 @@ public class SanPhamDTO extends BaseDTO {
     }
 
 
+    public String getImgBase64() {
+        return imgBase64;
+    }
+
+    public void setImgBase64(String imgBase64) {
+        this.imgBase64 = imgBase64;
+    }
 }

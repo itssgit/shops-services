@@ -14,6 +14,7 @@ public class ChiTietSanPhamDTO extends BaseDTO {
     private int soLuong;
     private Integer trangThaiXoa;
     private Date thoiGianXoa;
+    private NguyenLieuDTO nguyenLieuDTO;
 
     public ChiTietSanPhamDTO() {
         super();
@@ -72,4 +73,11 @@ public class ChiTietSanPhamDTO extends BaseDTO {
         this.thoiGianXoa = thoiGianXoa;
     }
 
+    public NguyenLieuDTO getNguyenLieuDTO() {
+        return nguyenLieuDTO;
+    }
+
+    public void setNguyenLieuDTO(NguyenLieuDTO nguyenLieuDTO) {
+        this.nguyenLieuDTO = nguyenLieuDTO;
+    }
 }

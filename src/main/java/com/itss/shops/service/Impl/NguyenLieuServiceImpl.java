@@ -46,7 +46,9 @@ public class NguyenLieuServiceImpl implements NguyenLieuService {
 
     @Override
     public NguyenLieuDTO getNguyenLieuDTOById(Integer nguyenLieuID) {
-        return nguyenLieuRepository.getNguyenLieuDTOById(nguyenLieuID);
+
+
+       return nguyenLieuRepository.getNguyenLieuDTOById(nguyenLieuID);
     }
 
 }

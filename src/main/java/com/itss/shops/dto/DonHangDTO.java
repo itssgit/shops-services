@@ -18,7 +18,9 @@ public class DonHangDTO extends BaseDTO {
     private int banId;
     private int nhanVienId;
 
-    private List<KhuyenMaiDTO> khuyenMaiDTOList;
+    private List<HangKhuyenMaiDTO> hangKhuyenMaiDTOList;
+    private BanDTO banDTO;
+    private NhanVienDTO nhanVienDTO;
 
     /**
      *
@@ -93,11 +95,27 @@ public class DonHangDTO extends BaseDTO {
         this.thoiGianXoa = thoiGianXoa;
     }
 
-    public List<KhuyenMaiDTO> getKhuyenMaiDTOList() {
-        return khuyenMaiDTOList;
+    public List<HangKhuyenMaiDTO> getHangKhuyenMaiDTOList() {
+        return hangKhuyenMaiDTOList;
     }
 
-    public void setKhuyenMaiDTOList(List<KhuyenMaiDTO> khuyenMaiDTOList) {
-        this.khuyenMaiDTOList = khuyenMaiDTOList;
+    public void setHangKhuyenMaiDTOList(List<HangKhuyenMaiDTO> hangKhuyenMaiDTOList) {
+        this.hangKhuyenMaiDTOList = hangKhuyenMaiDTOList;
+    }
+
+    public BanDTO getBanDTO() {
+        return banDTO;
+    }
+
+    public void setBanDTO(BanDTO banDTO) {
+        this.banDTO = banDTO;
+    }
+
+    public NhanVienDTO getNhanVienDTO() {
+        return nhanVienDTO;
+    }
+
+    public void setNhanVienDTO(NhanVienDTO nhanVienDTO) {
+        this.nhanVienDTO = nhanVienDTO;
     }
 }

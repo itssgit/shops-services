@@ -1,6 +1,7 @@
 package com.itss.shops.service.Impl;
 
 import com.itss.shops.common.exception.BadRequestException;
+import com.itss.shops.common.exception.RestException;
 import com.itss.shops.common.model.ListResponse;
 import com.itss.shops.dto.ChiTietSanPhamDTO;
 import com.itss.shops.dto.SanPhamDTO;
@@ -10,9 +11,17 @@ import com.itss.shops.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.misc.BASE64Decoder;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.itss.shops.common.constant.Constants.DATA_DIR;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
@@ -23,12 +32,45 @@ public class SanPhamServiceImpl implements SanPhamService {
     @Autowired
     private ChiTietSanPhamService chiTietSanPhamService;
 
+    String dataDir = DATA_DIR;
+
+
+    private String convertImgBase64(String sourceData, Integer sanPhamId) {
+        String pathName = dataDir + sanPhamId + "_" + System.currentTimeMillis() + ".png";
+        String[] split = sourceData.split(",");
+        String imageString = split[1];
+        // create a buffered image
+        BufferedImage image = null;
+        byte[] imageByte;
+
+        BASE64Decoder decoder = new BASE64Decoder();
+        try {
+            imageByte = decoder.decodeBuffer(imageString);
+            ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
+            image = ImageIO.read(bis);
+            bis.close();
+            File outputfile = new File(pathName);
+            ImageIO.write(image, "png", outputfile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RestException("Invalid image!");
+        }
+
+        return pathName;
+    }
+
     @Override
     @Transactional
     public SanPhamDTO addSanPham(SanPhamDTO sanPhamDTO) {
         if (sanPhamDTO.getSanPhamId() == null || sanPhamDTO.getSanPhamId() == 0) {
             sanPhamDTO.setSanPhamId(null);
+
             SanPhamDTO resultDTO = sanPhamRepo.addSanPham(sanPhamDTO);
+
+            //convert imgBase64 to image
+            resultDTO.setHinhAnh(convertImgBase64(sanPhamDTO.getImgBase64(),resultDTO.getSanPhamId()));
+            resultDTO = sanPhamRepo.updateSanPham(resultDTO);
+
 
             List<ChiTietSanPhamDTO> chiTietSanPhamDTOList =
                     chiTietSanPhamService.addListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList(), resultDTO.getSanPhamId());
