@@ -1,9 +1,9 @@
 package com.itss.shops.service;
 
+import java.util.List;
+
 import com.itss.shops.common.model.ListResponse;
 import com.itss.shops.dto.KhachHangDTO;
-
-import java.util.Optional;
 
 public interface KhachHangService {
 
@@ -11,9 +11,9 @@ public interface KhachHangService {
 
     KhachHangDTO updateKhachHang(KhachHangDTO khachHangDTO);
 
-    Integer deleteKhachHang(Integer khachHangID);
+    List<Integer> deleteKhachHang(List<Integer> khachHangIdList);
 
-    Optional<KhachHangDTO> getKhachHangDTOById(Integer khachHangID);
+    KhachHangDTO getKhachHangDTOById(Integer khachHangID);
 
     ListResponse<KhachHangDTO> getKhachHang(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
 
