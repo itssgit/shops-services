@@ -1,10 +1,10 @@
 package com.itss.shops.service;
 
+import java.util.List;
+
 import com.itss.shops.common.model.ListResponse;
 import com.itss.shops.dto.DonHangDTO;
 import com.itss.shops.dto.KhuyenMaiDTO;
-
-import java.util.Optional;
 
 public interface KhuyenMaiService {
 
@@ -12,9 +12,9 @@ public interface KhuyenMaiService {
 
     KhuyenMaiDTO updateKhuyenMai(KhuyenMaiDTO khuyenMaiDTO);
 
-    Integer deleteKhuyenMai(Integer khuyenMaiID);
+    List<Integer> deleteKhuyenMai(List<Integer> khuyenMaiIDList);
 
-    Optional<KhuyenMaiDTO> getKhuyenMaiDTOById(Integer khuyenMaiID);
+    KhuyenMaiDTO getKhuyenMaiDTOById(Integer khuyenMaiID);
 
     ListResponse<KhuyenMaiDTO> getKhuyenMai(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
 
