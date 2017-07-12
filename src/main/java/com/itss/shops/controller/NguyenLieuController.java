@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -40,6 +42,48 @@ public class NguyenLieuController {
             response.successfulRespone(addedDTO);
         } catch (Exception ex) {
             response.failedRespone(addedDTO, ex.getMessage());
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/createList", method = RequestMethod.POST, produces = "application/json")
+    public CommonResponse<List<NguyenLieuDTO>> addListNguyenLieu(@RequestBody @Valid final List<NguyenLieuDTO> nguyenLieuDTOList) {
+        CommonResponse<List<NguyenLieuDTO>> response = new CommonResponse<>();
+        List<NguyenLieuDTO> addedDTOs = new ArrayList<>();
+        try {
+            addedDTOs = nguyenLieuService.addListNguyenLieu(nguyenLieuDTOList);
+            response.successfulRespone(addedDTOs);
+        } catch (Exception ex) {
+            response.failedRespone(addedDTOs, ex.getMessage());
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json")
+    public CommonResponse<NguyenLieuDTO> updateNguyenLieu(@RequestBody @Valid final NguyenLieuDTO nguyenLieuDTO) {
+        CommonResponse<NguyenLieuDTO> response = new CommonResponse<>();
+        NguyenLieuDTO updatedDTO = new NguyenLieuDTO();
+        try {
+            updatedDTO = nguyenLieuService.updateNguyenLieu(nguyenLieuDTO);
+            response.successfulRespone(updatedDTO);
+        } catch (Exception ex) {
+            response.failedRespone(updatedDTO, ex.getMessage());
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/deleteList", method = RequestMethod.POST, produces = "application/json")
+    public CommonResponse<List<Integer>> deleteListNguyenLieu(@RequestBody @Valid final List<Integer> listNguyenLieuId) {
+        CommonResponse<List<Integer>> response = new CommonResponse<>();
+        List<Integer> listDeleted = new ArrayList<>();
+        try {
+            listDeleted = nguyenLieuService.deleteListNguyenLieu(listNguyenLieuId);
+            response.successfulRespone(listDeleted);
+        } catch (Exception ex) {
+            response.failedRespone(listDeleted, ex.getMessage());
         }
 
         return response;
@@ -74,5 +118,7 @@ public class NguyenLieuController {
 
         return response;
     }
+
+
 
 }

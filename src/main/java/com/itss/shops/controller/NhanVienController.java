@@ -30,7 +30,7 @@ public class NhanVienController {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
 	public CommonResponse<NhanVienDTO> addNhanVien(@RequestBody @Valid final NhanVienDTO nhanVienDTO) {
-		log.debug("### Recevied request to add new nhan vien");
+//		log.debug("### Recevied request to add new nhan vien");
 		CommonResponse<NhanVienDTO> response = new CommonResponse<>();
 		NhanVienDTO addDTO = new NhanVienDTO();
 		try {
@@ -82,11 +82,11 @@ public class NhanVienController {
 	@RequestMapping(value = "/find", method = RequestMethod.GET, produces = "application/json")
 	public CommonResponse<ListResponse<NhanVienDTO>> getNhanVien(@RequestParam(value = "pageNum", required = false, defaultValue = Constants.PAGE_DEFAULT_START) int pageNum,
             @RequestParam(value = "pageSize", required = false, defaultValue = Constants.PAGE_DEFAULT_LIMIT) int pageSize,
-            @RequestParam(value = "sortBy", required = false, defaultValue = "sanPhamId") String sortBy,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "nhanVienId") String sortBy,
             @RequestParam(value = "sortOrder", required = false, defaultValue = Constants.DESCENDING) String sortOrder,
             @RequestParam(value = "isShowInactive", required = false, defaultValue = "false") Boolean isShowInactive,
             @RequestParam(value = "searchText", required = false) String searchText) {
-		log.debug("#### Recevied request to get all nhan vien #######");
+//		log.debug("#### Recevied request to get all nhan vien #######");
 		ListResponse<NhanVienDTO> results = nhanVienService.getNhanVien(pageNum, pageSize, sortBy, sortOrder, isShowInactive, searchText);
 		CommonResponse<ListResponse<NhanVienDTO>> response = new CommonResponse<>();
 		response.successfulRespone(results);

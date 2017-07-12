@@ -18,5 +18,6 @@ public class Constants {
     public static final String ASCENDING = "ascending";
     public static final String DESCENDING = "descending";
 
-    public static final String DATA_DIR = "../data/shops-services/";
+    //public static final String DATA_DIR = "../webapps/shops-services/data/";
+    public static final String DATA_DIR = "../webapps/a/";
 }

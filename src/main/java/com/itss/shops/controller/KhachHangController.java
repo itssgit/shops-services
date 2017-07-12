@@ -29,7 +29,7 @@ public class KhachHangController {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
 	public CommonResponse<KhachHangDTO> addKhachHang(@RequestBody @Valid final KhachHangDTO khachHangDTO) {
-		log.debug("### Recevied request to add new khach hang");
+//		log.debug("### Recevied request to add new khach hang");
 		CommonResponse<KhachHangDTO> response = new CommonResponse<>();
 		KhachHangDTO addDTO = new KhachHangDTO();
 		try {
@@ -83,11 +83,11 @@ public class KhachHangController {
 	public CommonResponse<ListResponse<KhachHangDTO>> getKhachHang(
 			@RequestParam(value = "pageNum", required = false, defaultValue = Constants.PAGE_DEFAULT_START) int pageNum,
             @RequestParam(value = "pageSize", required = false, defaultValue = Constants.PAGE_DEFAULT_LIMIT) int pageSize,
-            @RequestParam(value = "sortBy", required = false, defaultValue = "sanPhamId") String sortBy,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "khachhangId") String sortBy,
             @RequestParam(value = "sortOrder", required = false, defaultValue = Constants.DESCENDING) String sortOrder,
             @RequestParam(value = "isShowInactive", required = false, defaultValue = "false") Boolean isShowInactive,
             @RequestParam(value = "searchText", required = false) String searchText) {
-		log.debug("#### Recevied request to get all khach hang #######");
+//		log.debug("#### Recevied request to get all khach hang #######");
 		CommonResponse<ListResponse<KhachHangDTO>> response = new CommonResponse<>();
 		ListResponse<KhachHangDTO> results = khachHangService.getKhachHang(pageNum, pageSize, sortBy, sortOrder, isShowInactive, searchText);
 		response.successfulRespone(results);

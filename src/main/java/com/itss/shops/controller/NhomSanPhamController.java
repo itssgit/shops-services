@@ -30,7 +30,7 @@ public class NhomSanPhamController {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
 	public CommonResponse<NhomSanPhamDTO> addNhomSanPham(@RequestBody @Valid final NhomSanPhamDTO nhomSanPhamDTO) {
-		log.debug("### Recevied request to add new nhom san pham");
+//		log.debug("### Recevied request to add new nhom san pham");
 		CommonResponse<NhomSanPhamDTO> response = new CommonResponse<>();
 		NhomSanPhamDTO addDTO = new NhomSanPhamDTO();
 		try {
@@ -87,7 +87,7 @@ public class NhomSanPhamController {
             @RequestParam(value = "sortOrder", required = false, defaultValue = Constants.DESCENDING) String sortOrder,
             @RequestParam(value = "isShowInactive", required = false, defaultValue = "false") Boolean isShowInactive,
             @RequestParam(value = "searchText", required = false) String searchText) {
-		log.debug("#### Recevied request to get all nhom san pham #######");
+		//log.debug("#### Recevied request to get all nhom san pham #######");
 		ListResponse<NhomSanPhamDTO> results = nhomSanPhamService.getNhomSanPham(pageNum, pageSize, sortBy, sortOrder, 
 				isShowInactive, searchText);
 		CommonResponse<ListResponse<NhomSanPhamDTO>> response = new CommonResponse<>();

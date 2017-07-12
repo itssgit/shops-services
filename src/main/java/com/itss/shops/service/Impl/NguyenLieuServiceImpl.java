@@ -8,6 +8,9 @@ import com.itss.shops.service.NguyenLieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class NguyenLieuServiceImpl implements NguyenLieuService {
 
@@ -25,6 +28,19 @@ public class NguyenLieuServiceImpl implements NguyenLieuService {
     }
 
     @Override
+    public List<NguyenLieuDTO> addListNguyenLieu(List<NguyenLieuDTO> nguyenLieuDTOList) {
+        List<NguyenLieuDTO> listAdded = new ArrayList<>();
+        nguyenLieuDTOList.forEach(nguyenLieuDTO->{
+            try {
+                listAdded.add(this.addNguyenLieu(nguyenLieuDTO));
+            }catch (Exception ex) {
+                //log exception and do nothing
+            }
+        });
+        return listAdded;
+    }
+
+    @Override
     public NguyenLieuDTO updateNguyenLieu(NguyenLieuDTO nguyenLieuDTO) {
         if (nguyenLieuDTO.getNguyenLieuId() != null) {
             return nguyenLieuRepository.updateNguyenLieu(nguyenLieuDTO);
@@ -36,6 +52,20 @@ public class NguyenLieuServiceImpl implements NguyenLieuService {
     @Override
     public Integer deleteNguyenLieu(Integer nguyenLieuID) {
         return nguyenLieuRepository.deleteNguyenLieu(nguyenLieuID);
+    }
+
+    @Override
+    public List<Integer> deleteListNguyenLieu(List<Integer> listNguyenLieuId) {
+        List<Integer> listDeleted = new ArrayList<>();
+        listNguyenLieuId.forEach(nguyenLieuId->{
+            try {
+                this.deleteNguyenLieu(nguyenLieuId);
+                listDeleted.add(nguyenLieuId);
+            }catch (Exception ex) {
+                //log exception and do nothing
+            }
+        });
+        return listDeleted;
     }
 
     @Override

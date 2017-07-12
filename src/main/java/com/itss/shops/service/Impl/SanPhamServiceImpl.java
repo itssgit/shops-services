@@ -9,6 +9,7 @@ import com.itss.shops.repository.SanPhamRepository;
 import com.itss.shops.service.ChiTietSanPhamService;
 import com.itss.shops.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sun.misc.BASE64Decoder;
@@ -34,9 +35,14 @@ public class SanPhamServiceImpl implements SanPhamService {
 
     String dataDir = DATA_DIR;
 
+    @Value("server.dataDir")
+    String displayDir;
+
 
     private String convertImgBase64(String sourceData, Integer sanPhamId) {
-        String pathName = dataDir + sanPhamId + "_" + System.currentTimeMillis() + ".png";
+        String fileName =  sanPhamId + "_" + System.currentTimeMillis() + ".png";
+        String pathName = dataDir + fileName;
+        String displayPath = displayDir + fileName;
         String[] split = sourceData.split(",");
         String imageString = split[1];
         // create a buffered image
@@ -56,7 +62,7 @@ public class SanPhamServiceImpl implements SanPhamService {
             throw new RestException("Invalid image!");
         }
 
-        return pathName;
+        return displayPath;
     }
 
     @Override

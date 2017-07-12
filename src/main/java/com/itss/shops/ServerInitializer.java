@@ -1,6 +1,5 @@
 package com.itss.shops;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -20,12 +19,11 @@ public class ServerInitializer implements ApplicationRunner {
     public void run(ApplicationArguments applicationArguments) throws Exception {
         File theDir = new File(DATA_DIR);
         if (!theDir.exists()) {
-            System.out.println("creating directory: " + theDir.getName());
+            System.out.println("creating directory: " + theDir.getPath());
             boolean result = false;
 
             try {
-                theDir.mkdir();
-                result = true;
+                result = theDir.mkdir();
             } catch (SecurityException se) {
                 System.out.println("can not create data directory!");
             }
