@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/admin/account")
+@RequestMapping("/api/account")
 public class AccountController {
 
     @Autowired

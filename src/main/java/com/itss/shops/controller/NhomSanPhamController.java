@@ -83,7 +83,7 @@ public class NhomSanPhamController {
 	public CommonResponse<ListResponse<NhomSanPhamDTO>> getNhomSanPham(
 			@RequestParam(value = "pageNum", required = false, defaultValue = Constants.PAGE_DEFAULT_START) int pageNum,
             @RequestParam(value = "pageSize", required = false, defaultValue = Constants.PAGE_DEFAULT_LIMIT) int pageSize,
-            @RequestParam(value = "sortBy", required = false, defaultValue = "sanPhamId") String sortBy,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "nhomSanPhamId") String sortBy,
             @RequestParam(value = "sortOrder", required = false, defaultValue = Constants.DESCENDING) String sortOrder,
             @RequestParam(value = "isShowInactive", required = false, defaultValue = "false") Boolean isShowInactive,
             @RequestParam(value = "searchText", required = false) String searchText) {
