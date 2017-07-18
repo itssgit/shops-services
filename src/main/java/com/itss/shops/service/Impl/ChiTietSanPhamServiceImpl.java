@@ -58,9 +58,13 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
     public List<ChiTietSanPhamDTO> updateListChiTietSanPham(List<ChiTietSanPhamDTO> chiTietSanPhamDTOs) {
         List<ChiTietSanPhamDTO> listDTO = new ArrayList<>();
         for (ChiTietSanPhamDTO tmpDTO : chiTietSanPhamDTOs) {
-
-            ChiTietSanPhamDTO updatedDTO = this.updateChiTietSanPham(tmpDTO);
-            listDTO.add(updatedDTO);
+            if (tmpDTO.getChiTietSanPhamId() == null || tmpDTO.getChiTietSanPhamId() == 0) {
+                ChiTietSanPhamDTO insertDTO = this.addChiTietSanPham(tmpDTO);
+                listDTO.add(insertDTO);
+            } else {
+                ChiTietSanPhamDTO updatedDTO = this.updateChiTietSanPham(tmpDTO);
+                listDTO.add(updatedDTO);
+            }
         }
         return listDTO;
     }

@@ -91,6 +91,27 @@ public class SanPhamServiceImpl implements SanPhamService {
     @Transactional
     public SanPhamDTO updateSanPham(SanPhamDTO sanPhamDTO) {
         if (sanPhamDTO.getSanPhamId() != null) {
+            //delete chi tiet khong co trong list
+            List<ChiTietSanPhamDTO> chiTietSanPhamDTOs = chiTietSanPhamService.getListChiTietSanPhamDTOBySanPhamId(sanPhamDTO.getSanPhamId());
+            //List<ChiTietSanPhamDTO> listDelete = new ArrayList<>();
+            chiTietSanPhamDTOs.forEach(chiTietSanPhamDTO -> {
+                Boolean isDelete = true;
+                for(ChiTietSanPhamDTO tmpDTO : sanPhamDTO.getChiTietSanPhamDTOList()){
+                    if(chiTietSanPhamDTO.getChiTietSanPhamId() == tmpDTO.getChiTietSanPhamId()
+                            && chiTietSanPhamDTO.getChiTietSanPhamId() != null
+                            && chiTietSanPhamDTO.getChiTietSanPhamId() != 0 ){
+                        isDelete = false;
+                        break;
+                    }
+                }
+
+                if(isDelete) {
+                    if (chiTietSanPhamDTO.getChiTietSanPhamId() != null && chiTietSanPhamDTO.getChiTietSanPhamId() != 0)
+                        chiTietSanPhamService.deleteChiTietSanPham(chiTietSanPhamDTO.getChiTietSanPhamId());
+                }
+            });
+
+            //add or update chi tiet co trong list
             chiTietSanPhamService.updateListChiTietSanPham(sanPhamDTO.getChiTietSanPhamDTOList());
             return sanPhamRepo.updateSanPham(sanPhamDTO);
         } else throw new BadRequestException();
