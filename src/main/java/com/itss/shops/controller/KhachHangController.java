@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/khachhang")
+@RequestMapping("/khachhang")
 public class KhachHangController {
 	
 	@Autowired

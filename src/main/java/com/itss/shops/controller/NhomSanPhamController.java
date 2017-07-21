@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/nhomnguyenlieu")
+@RequestMapping("/nhomnguyenlieu")
 public class NhomSanPhamController {
 	
 	@Autowired

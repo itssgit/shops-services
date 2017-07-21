@@ -3,6 +3,7 @@ package com.itss.shops.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.itss.shops.common.dto.BaseDTO;
+import com.itss.shops.entity.HangKhuyenMai;
 
 import java.util.Date;
 import java.util.List;
@@ -18,9 +19,13 @@ public class DonHangDTO extends BaseDTO {
     private int banId;
     private int nhanVienId;
 
-    private List<HangKhuyenMaiDTO> hangKhuyenMaiDTOList;
+
     private BanDTO banDTO;
     private NhanVienDTO nhanVienDTO;
+    private List<HangKhuyenMaiDTO> hangKhuyenMaiDTOList;
+    private List<ChiTietDonHangDTO> chiTietDonHangDTOList;
+
+
 
     /**
      *
@@ -117,5 +122,13 @@ public class DonHangDTO extends BaseDTO {
 
     public void setNhanVienDTO(NhanVienDTO nhanVienDTO) {
         this.nhanVienDTO = nhanVienDTO;
+    }
+
+    public List<ChiTietDonHangDTO> getChiTietDonHangDTOList() {
+        return chiTietDonHangDTOList;
+    }
+
+    public void setChiTietDonHangDTOList(List<ChiTietDonHangDTO> chiTietDonHangDTOList) {
+        this.chiTietDonHangDTOList = chiTietDonHangDTOList;
     }
 }
