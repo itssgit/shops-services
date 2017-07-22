@@ -11,6 +11,7 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class DonHangDTO extends BaseDTO {
     private Integer donHangId;
+    private int trangThai;
     private Date thoiGian;
     private float tongTien;
     private String ghiChu;
@@ -130,5 +131,13 @@ public class DonHangDTO extends BaseDTO {
 
     public void setChiTietDonHangDTOList(List<ChiTietDonHangDTO> chiTietDonHangDTOList) {
         this.chiTietDonHangDTOList = chiTietDonHangDTOList;
+    }
+
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
     }
 }

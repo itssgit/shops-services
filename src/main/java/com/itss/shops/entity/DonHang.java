@@ -16,6 +16,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class DonHang extends BaseEntity {
 
     private Integer donHangId;
+    private int trangThai;
     private Date thoiGian;
     private float tongTien;
     private String ghiChu;
@@ -56,6 +57,15 @@ public class DonHang extends BaseEntity {
 
     public void setDonHangId(Integer donHangId) {
         this.donHangId = donHangId;
+    }
+
+    @Column(name = "trangthai", nullable = false)
+    public int getTrangThai() {
+        return this.trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
