@@ -64,8 +64,13 @@ public class KhuyenMaiRepositoryImpl implements KhuyenMaiRepositoryCustom {
 
 	@Override
 	public KhuyenMaiDTO getKhuyenMaiByID(Integer khuyenMaiID) {
-		// TODO Auto-generated method stub
-		return modelMapper.map(khuyenMaiRepository.findOne(khuyenMaiID), KhuyenMaiDTO.class);
+		KhuyenMai khuyenMai = khuyenMaiRepository.findOne(khuyenMaiID);
+
+		if(khuyenMai == null){
+			throw new RestException("Record doesn't exist");
+		}
+
+		return modelMapper.map(khuyenMai, KhuyenMaiDTO.class);
 	}
 
 	@Override

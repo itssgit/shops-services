@@ -15,6 +15,8 @@ public class ChiTietDonHangDTO extends BaseDTO {
     private Integer trangThaiXoa;
     private Date thoiGianXoa;
 
+    private SanPhamDTO sanPhamDTO;
+
     public ChiTietDonHangDTO() {
         super();
     }
@@ -82,5 +84,13 @@ public class ChiTietDonHangDTO extends BaseDTO {
 
     public void setThoiGianXoa(Date thoiGianXoa) {
         this.thoiGianXoa = thoiGianXoa;
+    }
+
+    public SanPhamDTO getSanPhamDTO() {
+        return sanPhamDTO;
+    }
+
+    public void setSanPhamDTO(SanPhamDTO sanPhamDTO) {
+        this.sanPhamDTO = sanPhamDTO;
     }
 }

@@ -64,8 +64,14 @@ public class NhanVienRepositoryImpl implements NhanVienRepositoryCustom {
 
 	@Override
 	public NhanVienDTO getNhanVienByID(Integer nhanVienID) {
-		// TODO Auto-generated method stub
-		return modelMapper.map(nhanVienRepository.findOne(nhanVienID), NhanVienDTO.class);
+
+		NhanVien nhanVien = nhanVienRepository.findOne(nhanVienID);
+
+		if(nhanVien == null){
+			throw new RestException("Record doesn't exist");
+		}
+
+		return modelMapper.map(nhanVien, NhanVienDTO.class);
 	}
 
 	@Override

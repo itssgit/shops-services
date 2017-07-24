@@ -63,7 +63,13 @@ public class NguyenLieuRepositoryImpl implements NguyenLieuRepositoryCustom {
 
     @Override
     public NguyenLieuDTO getNguyenLieuDTOById(Integer nguyenLieuID) {
-        return modelMapper.map(nguyenLieuRepository.findOne(nguyenLieuID), NguyenLieuDTO.class);
+        NguyenLieu nguyenLieu = nguyenLieuRepository.findOne(nguyenLieuID);
+
+        if(nguyenLieu == null){
+            throw new RestException("Record doesn't exist");
+        }
+
+        return modelMapper.map(nguyenLieu, NguyenLieuDTO.class);
     }
 
     @Override

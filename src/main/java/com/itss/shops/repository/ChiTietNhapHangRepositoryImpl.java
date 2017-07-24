@@ -60,7 +60,14 @@ public class ChiTietNhapHangRepositoryImpl implements ChiTietNhapHangRepositoryC
 
     @Override
     public ChiTietNhapHangDTO getChiTietNhapHangDTOById(Integer chiTietNhapHangID) {
-        return modelMapper.map(chiTietNhapHangRepository.findOne(chiTietNhapHangID), ChiTietNhapHangDTO.class);
+
+        ChiTietNhapHang chiTietNhapHang = chiTietNhapHangRepository.findOne(chiTietNhapHangID);
+
+        if(chiTietNhapHang == null){
+            throw new RestException("Record doesn't exist");
+        }
+
+        return modelMapper.map(chiTietNhapHang, ChiTietNhapHangDTO.class);
     }
 
     @Override

@@ -64,8 +64,13 @@ public class KhachHangRepositoryImpl implements KhachHangRepositoryCustom {
 
 	@Override
 	public KhachHangDTO getKhachHangById(Integer khachHangId) {
-		// TODO Auto-generated method stub
-		return modelMapper.map(khachHangRepository.findOne(khachHangId), KhachHangDTO.class);
+		KhachHang khachHang = khachHangRepository.findOne(khachHangId);
+
+		if(khachHang == null){
+			throw new RestException("Record doesn't exist");
+		}
+
+		return modelMapper.map(khachHang, KhachHangDTO.class);
 	}
 
 	@Override

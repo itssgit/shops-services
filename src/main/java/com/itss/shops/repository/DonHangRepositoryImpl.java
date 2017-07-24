@@ -59,7 +59,13 @@ public class DonHangRepositoryImpl implements DonHangRepositoryCustom{
 
     @Override
     public DonHangDTO getDonHangDTOById(Integer donhangID) {
-        return modelMapper.map(donHangRepository.findOne(donhangID), DonHangDTO.class);
+        DonHang donHang = donHangRepository.findOne(donhangID);
+
+        if(donHang == null){
+            throw new RestException("Record doesn't exist");
+        }
+
+        return modelMapper.map(donHang, DonHangDTO.class);
     }
 
     @Override

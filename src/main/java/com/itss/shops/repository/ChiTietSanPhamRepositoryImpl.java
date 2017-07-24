@@ -61,7 +61,13 @@ public class ChiTietSanPhamRepositoryImpl implements ChiTietSanPhamRepositoryCus
 
     @Override
     public ChiTietSanPhamDTO getChiTietSanPhamDTOById(Integer chiTietSanPhamID) {
-        return modelMapper.map(chiTietSanPhamRepository.findOne(chiTietSanPhamID), ChiTietSanPhamDTO.class);
+        ChiTietSanPham chiTietSanPham = chiTietSanPhamRepository.findOne(chiTietSanPhamID);
+
+        if(chiTietSanPham == null){
+            throw new RestException("Record doesn't exist");
+        }
+
+        return modelMapper.map(chiTietSanPham, ChiTietSanPhamDTO.class);
     }
 
     @Override

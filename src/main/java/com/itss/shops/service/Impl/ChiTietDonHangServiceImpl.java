@@ -4,6 +4,7 @@ import com.itss.shops.common.exception.BadRequestException;
 import com.itss.shops.dto.ChiTietDonHangDTO;
 import com.itss.shops.repository.ChiTietDonHangRepository;
 import com.itss.shops.service.ChiTietDonHangService;
+import com.itss.shops.service.SanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class ChiTietDonHangServiceImpl implements ChiTietDonHangService {
 
     @Autowired
     private ChiTietDonHangRepository chiTietDonHangRepository;
+
+    @Autowired
+    private SanPhamService sanPhamService;
 
     @Override
     public ChiTietDonHangDTO addChiTietDonHang(ChiTietDonHangDTO chiTietDonHangDTO) {
@@ -78,11 +82,18 @@ public class ChiTietDonHangServiceImpl implements ChiTietDonHangService {
 
     @Override
     public List<ChiTietDonHangDTO> getListChiTietDonHangDTOByDonHangId(Integer donHangID) {
-        return chiTietDonHangRepository.getChiTietDonHangDtosByDonHangId(donHangID);
+        List<ChiTietDonHangDTO> chiTietDonHangDTOList = chiTietDonHangRepository.getChiTietDonHangDtosByDonHangId(donHangID);
+        for(ChiTietDonHangDTO tmpDTO : chiTietDonHangDTOList){
+            tmpDTO.setSanPhamDTO(sanPhamService.getSanPhamDTOById(tmpDTO.getSanPhamId()));
+        }
+
+        return chiTietDonHangDTOList;
     }
 
     @Override
     public ChiTietDonHangDTO getChiTietDonHangDTOById(Integer chiTietDonHangID) {
-        return chiTietDonHangRepository.getChiTietDonHangDTOById(chiTietDonHangID);
+        ChiTietDonHangDTO chiTietDonHangDTO = chiTietDonHangRepository.getChiTietDonHangDTOById(chiTietDonHangID);
+        chiTietDonHangDTO.setSanPhamDTO(sanPhamService.getSanPhamDTOById(chiTietDonHangDTO.getSanPhamId()));
+        return chiTietDonHangDTO;
     }
 }

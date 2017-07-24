@@ -80,6 +80,12 @@ public class SanPhamRepositoryImpl implements SanPhamRepositoryCustom {
 
     @Override
     public SanPhamDTO getSanPhamDTOById(Integer sanphamID) {
-        return modelMapper.map(sanPhamRepository.findOne(sanphamID), SanPhamDTO.class);
+        SanPham sanPham = sanPhamRepository.findOne(sanphamID);
+
+        if(sanPham == null){
+            throw new RestException("Record doesn't exist");
+        }
+
+        return modelMapper.map(sanPham, SanPhamDTO.class);
     }
 }

@@ -64,13 +64,15 @@ public class NhomSanPhamRepositoryImpl implements NhomSanPhamRepositoryCustom{
 
 	@Override
 	public NhomSanPhamDTO getNhomSanPhamByID(Integer nhomSanPhamID) throws Exception{
-		// TODO Auto-generated method stub
 		//anhvv - bo sung validate
 		NhomSanPham nhomSanPham = nhomSanPhamRepository.findOne(nhomSanPhamID);
+
 		if(nhomSanPham == null){
-			throw new Exception("Nhom san pham khong ton tai");
+			throw new RestException("Record doesn't exist");
 		}
+
 		//end
+
 		return modelMapper.map(nhomSanPhamRepository.findOne(nhomSanPhamID), NhomSanPhamDTO.class);
 	}
 
