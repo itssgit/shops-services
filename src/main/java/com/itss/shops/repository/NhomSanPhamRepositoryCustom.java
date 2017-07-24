@@ -12,7 +12,7 @@ public interface NhomSanPhamRepositoryCustom {
 	
 	public List<Integer> deleteNhomSanPham(List<Integer> nhomSanPhamIDList);
 	
-	public NhomSanPhamDTO getNhomSanPhamByID(Integer nhomSanPhamID);
+	public NhomSanPhamDTO getNhomSanPhamByID(Integer nhomSanPhamID) throws Exception;
 	
 	public List<NhomSanPhamDTO> getAll(int pageNum, int pageSize, String sortBy, 
 						String sortOrder, Boolean isShowInactive, String searchText);

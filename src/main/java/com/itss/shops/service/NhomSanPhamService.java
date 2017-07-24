@@ -13,7 +13,7 @@ public interface NhomSanPhamService {
 
     List<Integer> deleteNhomSanPham(List<Integer> nhomSanPhamIdList);
 
-    NhomSanPhamDTO getNhomSanPhamDTOById(Integer nhomSanPhamID);
+    NhomSanPhamDTO getNhomSanPhamDTOById(Integer nhomSanPhamID) throws Exception;
 
     ListResponse<NhomSanPhamDTO> getNhomSanPham(int pageNum, int pageSize, String sortBy, String sortOrder, Boolean isShowInactive, String searchText);
 

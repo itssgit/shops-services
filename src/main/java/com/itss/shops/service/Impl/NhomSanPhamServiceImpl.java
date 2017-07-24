@@ -48,7 +48,7 @@ public class NhomSanPhamServiceImpl implements NhomSanPhamService {
     }
 
     @Override
-    public NhomSanPhamDTO getNhomSanPhamDTOById(Integer nhomSanPhamID) {
+    public NhomSanPhamDTO getNhomSanPhamDTOById(Integer nhomSanPhamID) throws Exception {
     	NhomSanPhamDTO nhomSanPhamDTO = nhomSanPhamRepository.getNhomSanPhamByID(nhomSanPhamID);
         return nhomSanPhamDTO;
     }

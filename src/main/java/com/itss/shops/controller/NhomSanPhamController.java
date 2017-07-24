@@ -74,7 +74,7 @@ public class NhomSanPhamController {
 			resultDTO = nhomSanPhamService.getNhomSanPhamDTOById(nhomSanphamID);
 			response.successfulRespone(resultDTO);
 		} catch (Exception ex) {
-			throw new BadRequestException(ex.getMessage());
+			response.failedRespone(resultDTO, ex.getMessage());
 		}
 		return response;
 	}
