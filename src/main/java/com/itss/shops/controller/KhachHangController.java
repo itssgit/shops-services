@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +28,7 @@ public class KhachHangController {
 	@Autowired
 	KhachHangService khachHangService;
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
 	public CommonResponse<KhachHangDTO> addKhachHang(@RequestBody @Valid final KhachHangDTO khachHangDTO) {
 //		log.debug("### Recevied request to add new khach hang");
@@ -41,6 +43,7 @@ public class KhachHangController {
 		return response;
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/update", method = RequestMethod.PUT, produces = "application/json")
 	public CommonResponse<KhachHangDTO> updateKhachHang(@RequestBody @Valid final KhachHangDTO khachHangDTO) {
 		CommonResponse<KhachHangDTO> response = new CommonResponse<>();
@@ -54,6 +57,7 @@ public class KhachHangController {
 		return response;
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/deleteList", method = RequestMethod.DELETE, produces = "application/json")
 	public CommonResponse<List<Integer>> deleteListKhachHang(@RequestBody @Valid final List<Integer> khachHangIdList) {
 		CommonResponse<List<Integer>> response = new CommonResponse<>();
@@ -65,6 +69,7 @@ public class KhachHangController {
 		return response;
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/findOne", method = RequestMethod.GET, produces = "application/json")
 	public CommonResponse<KhachHangDTO> getOneKhachHang(
 			@RequestParam(value = "khachHang", required = true, defaultValue = "0") int khachHangID) {
@@ -79,6 +84,7 @@ public class KhachHangController {
 		return response;
 	}
 	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/find", method = RequestMethod.GET, produces = "application/json")
 	public CommonResponse<ListResponse<KhachHangDTO>> getKhachHang(
 			@RequestParam(value = "pageNum", required = false, defaultValue = Constants.PAGE_DEFAULT_START) int pageNum,
@@ -87,7 +93,6 @@ public class KhachHangController {
             @RequestParam(value = "sortOrder", required = false, defaultValue = Constants.DESCENDING) String sortOrder,
             @RequestParam(value = "isShowInactive", required = false, defaultValue = "false") Boolean isShowInactive,
             @RequestParam(value = "searchText", required = false) String searchText) {
-//		log.debug("#### Recevied request to get all khach hang #######");
 		CommonResponse<ListResponse<KhachHangDTO>> response = new CommonResponse<>();
 		ListResponse<KhachHangDTO> results = khachHangService.getKhachHang(pageNum, pageSize, sortBy, sortOrder, isShowInactive, searchText);
 		response.successfulRespone(results);

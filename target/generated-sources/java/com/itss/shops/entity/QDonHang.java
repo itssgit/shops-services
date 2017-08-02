@@ -38,6 +38,8 @@ public class QDonHang extends EntityPathBase<DonHang> {
 
     public final NumberPath<Float> tongTien = createNumber("tongTien", Float.class);
 
+    public final NumberPath<Integer> trangThai = createNumber("trangThai", Integer.class);
+
     public final NumberPath<Integer> trangThaiXoa = createNumber("trangThaiXoa", Integer.class);
 
     //inherited

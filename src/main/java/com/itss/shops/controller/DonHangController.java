@@ -7,6 +7,7 @@ import com.itss.shops.dto.DonHangDTO;
 import com.itss.shops.service.DonHangService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import javax.validation.Valid;
 @RestController
 @Slf4j
 @RequestMapping("/donhang")
+@PreAuthorize("hasRole('ADMIN')")
 public class DonHangController {
 
     @Autowired

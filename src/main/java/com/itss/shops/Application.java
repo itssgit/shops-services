@@ -7,8 +7,12 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 
 @SpringBootApplication
 @EnableConfigurationProperties
@@ -37,6 +41,17 @@ public class Application extends SpringBootServletInitializer {
 				.allowedMethods("GET", "POST","PUT", "DELETE","OPTIONS")  ;
 			}
 		};
+	}
+    
+    @Bean
+	public RestTemplate restTemplate() {
+		RestTemplate restTemplate = new RestTemplate();
+		return restTemplate;
+	}
+	
+	@Bean
+	public TokenStore tokenStore() {
+		return new InMemoryTokenStore();
 	}
 
 }
